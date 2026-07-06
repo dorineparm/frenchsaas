@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 
 const {
   title = 'FrenchSaaS — French localization for SaaS products',
-  description = 'EN→FR localization, UX writing and LQA for SaaS, tech and AI products.',
+  description = 'EN→FR localization, UX writing and LQA for SaaS, tech and games.',
   current = '',
 } = Astro.props;
 ---
@@ -20,8 +20,6 @@ const {
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <!-- Netlify Identity: needed so the CMS login invitation links work -->
-  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
   <Header current={current} />
@@ -31,17 +29,5 @@ const {
   <Footer />
 
   <script is:inline src="/site.js"></script>
-  <script is:inline>
-    // After accepting a Netlify Identity invitation, send the user to /admin/
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
-  </script>
 </body>
 </html>
