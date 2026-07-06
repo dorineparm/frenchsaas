@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base current="contact" title="Contact — FrenchSaaS" description="Tell me about your product and get a clear scope and quote for French localization.">
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Contact</span></div>
+      <h1 class="display-xl stagger">Parlons-en<span class="guillemet">.</span></h1>
+      <p class="lede stagger">Tell me about your product, your timeline and roughly how many words or strings are involved. I'll come back with a clear scope and a quote.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+
+      <!-- Netlify Forms: works automatically once deployed on Netlify.
+           Submissions appear in your Netlify dashboard under "Forms". -->
+      <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none;">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="company">Company / product</label>
+          <input type="text" id="company" name="company" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="message">Your project</label>
+          <textarea id="message" name="message" required placeholder="What are you localizing, by when, and roughly how big is it?"></textarea>
+        </div>
+        <div>
+          <button class="btn btn-solid" type="submit">Send message</button>
+          <p class="form-note" style="margin-top:0.8rem;">This form is handled by Netlify Forms — submissions land in your Netlify dashboard.</p>
+        </div>
+      </form>
+
+      <aside class="contact-aside reveal" style="--d:0.1s;">
+        <span class="eyebrow">Direct</span>
+        <p class="big-mail"><a href="mailto:hello@frenchsaas.com">hello@frenchsaas.com</a></p>
+        <p>Prefer email? Write to me directly — I answer every serious inquiry within one business day, in English or in French.</p>
+        <p>Based in France (CET), which overlaps nicely with both US mornings and APAC evenings.</p>
+      </aside>
+
+    </div>
+  </section>
+</Base>

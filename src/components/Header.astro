@@ -1,0 +1,20 @@
+---
+const { current = '' } = Astro.props;
+const links = [
+  { href: '/', key: 'home', label: 'Home' },
+  { href: '/services/', key: 'services', label: 'Services' },
+  { href: '/about/', key: 'about', label: 'About' },
+  { href: '/blog/', key: 'blog', label: 'Blog' },
+  { href: '/contact/', key: 'contact', label: 'Contact' },
+];
+---
+<header class="site-header">
+  <div class="wrap">
+    <a href="/" class="wordmark"><em>French</em>SaaS<span class="tld">.com</span></a>
+    <nav class="site-nav" aria-label="Main">
+      {links.map((l) => (
+        <a href={l.href} aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>

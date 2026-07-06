@@ -1,0 +1,32 @@
+# ============================================================
+# Decap CMS — configuration
+# Interface d'administration : https://VOTRE-SITE/admin/
+# ============================================================
+
+backend:
+  name: git-gateway
+  branch: main   # ⚠️ mettre "master" si votre dépôt utilise cette branche
+
+# Pour tester le CMS en local (npm run cms + npm run dev),
+# décommentez la ligne suivante :
+# local_backend: true
+
+media_folder: "public/images/uploads"   # où les images sont stockées dans le repo
+public_folder: "/images/uploads"        # URL publique des images
+
+locale: "fr"
+
+collections:
+  - name: "blog"
+    label: "Articles de blog"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Description (résumé affiché sur la page Blog)", name: "description", widget: "string" }
+      - { label: "Date de publication", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tag (ex. UX writing, SEO / GEO, Engineering)", name: "tag", widget: "string", default: "Localization" }
+      - { label: "Contenu", name: "body", widget: "markdown" }

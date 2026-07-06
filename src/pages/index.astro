@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base current="home">
+  <!-- ======== Hero ======== -->
+  <section class="hero">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <span class="deco deco-locale" data-parallax="0.32" aria-hidden="true">fr-FR</span>
+
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">en-US <span class="arrow">→</span> fr-FR</span></div>
+
+      <div class="stagger">
+        <div class="lang-toggle" role="group" aria-label="Preview this headline in English or French">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+      </div>
+
+      <h1 class="display-xl fade-swap stagger" id="hero-headline"
+          data-en="Your product already speaks English. Now make it speak French."
+          data-fr="Votre produit parle déjà anglais. Faites-le parler français.">
+        Your product already speaks English. Now make it speak French.
+      </h1>
+
+      <p class="lede fade-swap stagger" id="hero-lede"
+         data-en="Localization, UX writing and linguistic QA for SaaS, tech and AI products — by a Language Lead who treats every string as a product decision."
+         data-fr="Localisation, UX writing et assurance qualité linguistique pour les produits SaaS, tech et IA — par une Language Lead pour qui chaque chaîne est une décision produit.">
+        Localization, UX writing and linguistic QA for SaaS, tech and AI products — by a Language Lead who treats every string as a product decision.
+      </p>
+
+      <div class="hero-cta stagger">
+        <a class="btn btn-solid" href="/contact/">Start a project</a>
+        <a class="btn btn-ghost" href="/services/">See services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Manifesto ======== -->
+  <section class="section manifesto">
+    <div class="wrap">
+      <span class="eyebrow reveal">Why it matters</span>
+      <p class="reveal">France is one of the largest SaaS markets in Europe — and one of the least forgiving of machine-flavored copy. A French user can tell within one screen whether your product was <strong>localized</strong> or merely translated.</p>
+      <p class="reveal" style="--d:0.12s;">Localization is not a string-replacement job. It is a series of expert linguistic decisions: tone, terminology, plurals, placeholders, CTAs, legal nuance. That is the work I do.</p>
+    </div>
+  </section>
+
+  <!-- ======== Sectors ======== -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">Sectors</span>
+      <div class="sectors reveal" style="--d:0.08s;">
+        <span>SaaS</span>
+        <span>Tech &amp; Cloud</span>
+        <span>AI / ML</span>
+        <span>Gaming</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA band ======== -->
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Ready to go <span class="guillemet" style="color:#fff;">« en français »</span> ?</h2>
+      <p class="reveal" style="--d:0.08s;">Tell me about your product, your timeline and your string count. You'll get a clear scope and a quote — no agency layers, no middlemen.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+</Base>
