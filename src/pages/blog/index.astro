@@ -27,13 +27,44 @@ const fmt = (d) =>
             {fmt(post.data.pubDate)}
             <span class="tag">{post.data.tag}</span>
           </div>
-          <div>
-            <h3><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h3>
-            <p>{post.data.description}</p>
-            <a class="read-more" href={`/blog/${post.slug}/`}>Read the article <span class="rm-arrow">→</span></a>
+          <div class="post-body">
+            {post.data.image && (
+              <a href={`/blog/${post.slug}/`} class="post-thumb" aria-hidden="true" tabindex="-1">
+                <img src={post.data.image} alt="" loading="lazy" />
+              </a>
+            )}
+            <div>
+              <h3><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <a class="read-more" href={`/blog/${post.slug}/`}>Read the article <span class="rm-arrow">→</span></a>
+            </div>
           </div>
         </article>
       ))}
     </div>
   </section>
 </Base>
+
+<style>
+  .post-body { display: flex; gap: 1.6rem; align-items: flex-start; }
+  .post-thumb {
+    flex: 0 0 120px;
+    order: 2;
+    display: block;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .post-thumb img {
+    display: block;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+  .post-card:hover .post-thumb img { transform: scale(1.05); }
+  @media (max-width: 640px) {
+    .post-body { flex-direction: column; }
+    .post-thumb { order: 0; }
+    .post-thumb img { width: 100%; height: 160px; }
+  }
+</style>

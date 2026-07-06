@@ -1,0 +1,52 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base current="contact" lang="fr" title="Contact — FrenchSaaS" description="Parlez-moi de votre produit et recevez un périmètre clair et un devis pour votre localisation française.">
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Contact</span></div>
+      <h1 class="display-xl stagger">Parlons-en<span class="guillemet">.</span></h1>
+      <p class="lede stagger">Parlez-moi de votre produit, de vos délais et du volume approximatif de mots ou de chaînes. Je reviens vers vous avec un périmètre clair et un devis.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+
+      <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/fr/merci/">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none;">
+          <label>Ne pas remplir : <input name="bot-field" /></label>
+        </p>
+        <div class="field">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Email professionnel</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="company">Entreprise / produit</label>
+          <input type="text" id="company" name="company" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="message">Votre projet</label>
+          <textarea id="message" name="message" required placeholder="Que localisez-vous, pour quand, et quel volume environ ?"></textarea>
+        </div>
+        <div>
+          <button class="btn btn-solid" type="submit">Envoyer</button>
+        </div>
+      </form>
+
+      <aside class="contact-aside reveal" style="--d:0.1s;">
+        <span class="eyebrow">En direct</span>
+        <p class="big-mail"><a href="mailto:hello@frenchsaas.com">hello@frenchsaas.com</a></p>
+        <p>Vous préférez l'email ? Écrivez-moi directement — je réponds à toute demande sérieuse sous un jour ouvré, en français ou en anglais.</p>
+        <p>Basée en France (CET) — un fuseau qui recouvre à la fois les matinées américaines et les soirées asiatiques.</p>
+      </aside>
+
+    </div>
+  </section>
+</Base>

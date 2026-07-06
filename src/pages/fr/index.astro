@@ -1,5 +1,5 @@
 ---
-import Base from '../layouts/Base.astro';
+import Base from '../../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
 const posts = (await getCollection('blog'))
@@ -7,9 +7,9 @@ const posts = (await getCollection('blog'))
   .slice(0, 3);
 
 const fmt = (d) =>
-  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' });
 ---
-<Base current="home">
+<Base current="home" lang="fr" title="FrenchSaaS — Localisation française pour produits SaaS" description="Localisation EN→FR, UX writing et assurance qualité linguistique pour les produits SaaS, tech et IA.">
   <!-- ======== Hero ======== -->
   <section class="hero">
     <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
@@ -19,37 +19,37 @@ const fmt = (d) =>
       <div class="stagger"><span class="eyebrow">en-US <span class="arrow">→</span> fr-FR</span></div>
 
       <div class="stagger">
-        <div class="lang-toggle" role="navigation" aria-label="This page in English or French">
-          <a href="/" aria-current="page">EN</a>
-          <a href="/fr/">FR</a>
+        <div class="lang-toggle" role="navigation" aria-label="Cette page en anglais ou en français">
+          <a href="/">EN</a>
+          <a href="/fr/" aria-current="page">FR</a>
         </div>
       </div>
 
-      <h1 class="display-xl stagger">Your product already speaks English. Now make it speak French.</h1>
+      <h1 class="display-xl stagger">Votre produit parle déjà anglais. Faites-le parler français.</h1>
 
-      <p class="lede stagger">Localization, UX writing and linguistic QA for SaaS, tech and games — by a Language Lead who treats every string as a product decision.</p>
+      <p class="lede stagger">Localisation, UX writing et assurance qualité linguistique pour les produits SaaS, tech et le jeu vidéo — par une Language Lead pour qui chaque chaîne est une décision produit.</p>
 
       <div class="hero-cta stagger">
-        <a class="btn btn-solid" href="/contact/">Start a project</a>
-        <a class="btn btn-ghost" href="/services/">See services</a>
+        <a class="btn btn-solid" href="/fr/contact/">Lancer un projet</a>
+        <a class="btn btn-ghost" href="/fr/services/">Voir les services</a>
       </div>
     </div>
   </section>
 
-  <!-- ======== Manifesto ======== -->
+  <!-- ======== Manifeste ======== -->
   <section class="section manifesto">
     <div class="wrap">
-      <span class="eyebrow reveal">Why it matters</span>
-      <p class="reveal">France is one of the largest SaaS markets in Europe — and one of the least forgiving of machine-flavored copy. A French user can tell within one screen whether your product was <strong>localized</strong> or merely translated.</p>
-      <p class="reveal" style="--d:0.12s;">Localization is not a string-replacement job. It is a series of expert linguistic decisions: tone, terminology, plurals, placeholders, CTAs, legal nuance. That is the work I do.</p>
+      <span class="eyebrow reveal">Pourquoi c'est important</span>
+      <p class="reveal">La France est l'un des plus grands marchés SaaS d'Europe — et l'un des moins indulgents envers les textes au goût de traduction automatique. Un utilisateur français sait dès le premier écran si votre produit a été <strong>localisé</strong> ou simplement traduit.</p>
+      <p class="reveal" style="--d:0.12s;">La localisation n'est pas un remplacement de chaînes. C'est une suite de décisions linguistiques expertes : ton, terminologie, pluriels, variables, CTA, nuances juridiques. C'est mon métier.</p>
     </div>
   </section>
 
-  <!-- ======== Latest articles ======== -->
+  <!-- ======== Derniers articles ======== -->
   <section class="section">
     <div class="wrap">
-      <span class="eyebrow reveal">From the blog</span>
-      <h2 class="display-l reveal" style="margin-bottom:2rem;">Latest articles</h2>
+      <span class="eyebrow reveal">Sur le blog</span>
+      <h2 class="display-l reveal" style="margin-bottom:2rem;">Derniers articles <span class="guillemet">(en anglais)</span></h2>
 
       {posts.map((post, i) => (
         <article class="post-card reveal" style={`--d:${i * 0.07}s;`}>
@@ -66,44 +66,43 @@ const fmt = (d) =>
             <div>
               <h3><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h3>
               <p>{post.data.description}</p>
-              <a class="read-more" href={`/blog/${post.slug}/`}>Read the article <span class="rm-arrow">→</span></a>
+              <a class="read-more" href={`/blog/${post.slug}/`}>Lire l'article <span class="rm-arrow">→</span></a>
             </div>
           </div>
         </article>
       ))}
 
       <p class="reveal" style="margin-top:2rem;">
-        <a class="btn btn-ghost" href="/blog/">All articles</a>
+        <a class="btn btn-ghost" href="/blog/">Tous les articles</a>
       </p>
     </div>
   </section>
 
-  <!-- ======== Sectors ======== -->
+  <!-- ======== Secteurs ======== -->
   <section class="section">
     <div class="wrap">
-      <span class="eyebrow reveal">Sectors</span>
+      <span class="eyebrow reveal">Secteurs</span>
       <div class="sectors reveal" style="--d:0.08s;">
         <span>SaaS</span>
         <span>Tech &amp; Cloud</span>
-        <span>AI / ML</span>
-        <span>Gaming</span>
+        <span>IA / ML</span>
+        <span>Jeu vidéo</span>
       </div>
     </div>
   </section>
 
-  <!-- ======== CTA band ======== -->
+  <!-- ======== Bandeau CTA ======== -->
   <section class="cta-band">
     <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
     <div class="wrap">
-      <h2 class="display-l reveal">Ready to go <span class="guillemet" style="color:#fff;">« en français »</span> ?</h2>
-      <p class="reveal" style="--d:0.08s;">Tell me about your product, your timeline and your string count. You'll get a clear scope and a quote — no agency layers, no middlemen.</p>
-      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+      <h2 class="display-l reveal">Prêts à passer <span class="guillemet" style="color:#fff;">« en français »</span> ?</h2>
+      <p class="reveal" style="--d:0.08s;">Parlez-moi de votre produit, de vos délais et de votre volume de chaînes. Vous recevrez un périmètre clair et un devis — sans agence intermédiaire.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/fr/contact/">Me contacter</a>
     </div>
   </section>
 </Base>
 
 <style>
-  /* The old EN/FR toggle becomes real links to / and /fr/ */
   .lang-toggle a {
     font-family: var(--mono);
     font-size: 0.78rem;
