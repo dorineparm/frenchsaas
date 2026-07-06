@@ -25,7 +25,7 @@ const fmt = (d) =>
         </div>
       </div>
 
-      <h1 class="display-xl stagger">Helping your product feel at home in French.</h1>
+      <h1 class="display-xl stagger">Your product already speaks English. Now make it speak French.</h1>
 
       <p class="lede stagger">Localization, UX writing and linguistic QA for SaaS, tech and games — by a Language Lead who treats every string as a product decision.</p>
 
@@ -78,6 +78,31 @@ const fmt = (d) =>
     </div>
   </section>
 
+  <!-- ======== Free resource / lead magnet ======== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="resource-card reveal">
+        <div class="resource-card-visual" aria-hidden="true">
+          <div class="pdf-mock">
+            <span class="pdf-mock-guill">«»</span>
+            <span class="pdf-mock-tag">FREE PDF</span>
+            <span class="pdf-mock-title">Is your product ready for French localization?</span>
+            <span class="pdf-mock-lines"><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="resource-card-body">
+          <span class="eyebrow">Free checklist</span>
+          <h2 class="display-m">Is your product ready for French localization?</h2>
+          <p>A 20-point readiness audit for SaaS, tech &amp; gaming teams — the checklist I run through before taking on a French localization project. Spot the gaps before you translate a single string.</p>
+          <div class="resource-card-cta">
+            <a class="btn btn-solid" href="/files/french-localization-readiness-checklist.pdf" target="_blank" rel="noopener">Download the checklist →</a>
+            <span class="resource-card-note">PDF · 5 pages · no sign-up</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======== Sectors ======== -->
   <section class="section">
     <div class="wrap">
@@ -123,5 +148,93 @@ const fmt = (d) =>
     .post-body { flex-direction: column; }
     .post-thumb { order: 0; }
     .post-thumb img { width: 100%; height: 160px; }
+  }
+
+  /* ---------- Free resource / lead magnet card ---------- */
+  .resource-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    background: #fff;
+  }
+  .resource-card-visual {
+    background: linear-gradient(150deg, var(--purple) 0%, var(--purple-deep) 100%);
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .pdf-mock {
+    background: #fff;
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 18px 40px rgba(23, 20, 43, 0.28);
+    padding: 1.4rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+  }
+  .resource-card:hover .pdf-mock { transform: rotate(0deg) translateY(-4px); }
+  .pdf-mock-guill {
+    position: absolute;
+    top: -0.3em;
+    right: 0.1em;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--tint);
+  }
+  .pdf-mock-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: var(--purple);
+    font-weight: 600;
+  }
+  .pdf-mock-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+  .pdf-mock-lines { margin-top: auto; display: flex; flex-direction: column; gap: 0.4rem; }
+  .pdf-mock-lines i { height: 3px; background: var(--line); border-radius: 2px; display: block; }
+  .pdf-mock-lines i:nth-child(1) { width: 100%; }
+  .pdf-mock-lines i:nth-child(2) { width: 85%; }
+  .pdf-mock-lines i:nth-child(3) { width: 60%; }
+
+  .resource-card-body { padding: 2.6rem 2.4rem; }
+  .resource-card-body h2 { margin: 0.3rem 0 0.9rem; }
+  .resource-card-body p { color: var(--grey); font-size: 0.97rem; max-width: 34em; }
+  .resource-card-cta {
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .resource-card-note {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--grey);
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    .resource-card { grid-template-columns: 1fr; }
+    .resource-card-visual { padding: 2.4rem; }
   }
 </style>
