@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base current="contact" title="Contact — FrenchSaaS" description="Tell me about your product and get a clear scope and quote for French localization.">
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Contact</span></div>
+      <h1 class="display-xl stagger">Parlons-en<span class="guillemet">.</span></h1>
+      <p class="lede stagger">Tell me about your product, your timeline and roughly how many words or strings are involved. I'll come back with a clear scope and a quote.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+
+      <!-- Netlify Forms: works automatically once deployed on Netlify.
+           Submissions appear in your Netlify dashboard under "Forms". -->
+      <form class="contact-form reveal" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks/">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none;">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="company">Company / product</label>
+          <input type="text" id="company" name="company" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="message">Your project</label>
+          <textarea id="message" name="message" required placeholder="What are you localizing, by when, and roughly how big is it?"></textarea>
+        </div>
+        <div>
+          <button class="btn btn-solid" type="submit">Send message</button>
+          <p class="form-note" style="margin-top:0.8rem;">This form is handled by Netlify Forms — submissions land in your Netlify dashboard.</p>
+        </div>
+      </form>
+
+      <aside class="contact-aside reveal" style="--d:0.1s;">
+        <span class="eyebrow">Direct</span>
+        <p class="big-mail"><a href="mailto:contact@dorineparmentier.com">contact@dorineparmentier.com</a></p>
+        <p class="availability"><span class="status-dot" aria-hidden="true"></span> I answer every serious inquiry within one business day, in English or in French.</p>
+        <p class="tz">Based in France <strong>(CET)</strong> — overlapping US mornings and APAC evenings.</p>
+
+        <!-- LinkedIn card -->
+        <a class="li-card" href="https://www.linkedin.com/in/dorine-parmentier" target="_blank" rel="noopener">
+          <span class="li-photo">
+            <img src="/images/dorine.jpg" alt="Dorine Parmentier" onerror="this.style.display='none';this.parentNode.classList.add('li-photo-fallback');" />
+            <span class="li-initials" aria-hidden="true">DP</span>
+          </span>
+          <span class="li-body">
+            <span class="li-name">Dorine Parmentier</span>
+            <span class="li-role">Language Lead · EN→FR Localization</span>
+            <span class="li-cta">Connect on LinkedIn <span class="li-arrow">→</span></span>
+          </span>
+          <span class="li-badge" aria-hidden="true">in</span>
+        </a>
+
+        <p class="community-note">I also founded and run <strong>Tradiscord</strong>, one of the largest French-speaking translator communities online (1,500+ members) — a sign of how deeply I'm rooted in the localization world.</p>
+      </aside>
+
+    </div>
+  </section>
+</Base>
+
+<style>
+  .availability { display: flex; align-items: baseline; gap: 0.5rem; }
+  .status-dot {
+    flex: 0 0 auto;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #2FBF71;
+    box-shadow: 0 0 0 0 rgba(47, 191, 113, 0.5);
+    transform: translateY(-1px);
+    animation: pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(47, 191, 113, 0.5); }
+    70% { box-shadow: 0 0 0 7px rgba(47, 191, 113, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(47, 191, 113, 0); }
+  }
+  .tz { font-size: 0.95rem; }
+
+  /* LinkedIn card */
+  .li-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.8rem;
+    padding: 1.1rem 1.2rem;
+    border: 1px solid var(--line);
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+  .li-card::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--purple);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+  }
+  .li-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(83, 74, 183, 0.16);
+    border-color: var(--purple);
+  }
+  .li-card:hover::before { transform: scaleY(1); }
+
+  .li-photo {
+    flex: 0 0 60px;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(150deg, var(--purple), var(--purple-deep));
+    box-shadow: 0 0 0 3px var(--tint);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .li-photo img { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; }
+  .li-initials {
+    position: absolute; z-index: 1;
+    font-family: var(--display); font-weight: 600; font-size: 1.4rem; color: #fff;
+  }
+  .li-photo-fallback img { display: none; }
+
+  .li-body { display: flex; flex-direction: column; gap: 0.15rem; flex: 1; }
+  .li-name { font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+  .li-role { font-size: 0.82rem; color: var(--grey); }
+  .li-cta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--purple);
+    margin-top: 0.3rem;
+  }
+  .li-arrow { display: inline-block; transition: transform 0.2s ease; }
+  .li-card:hover .li-arrow { transform: translateX(4px); }
+
+  .li-badge {
+    position: absolute;
+    top: 0.9rem; right: 1rem;
+    width: 22px; height: 22px;
+    background: #0A66C2;
+    color: #fff;
+    font-family: var(--body);
+    font-weight: 600;
+    font-size: 0.7rem;
+    lowercase: none;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 3px;
+  }
+
+  .community-note {
+    font-size: 0.9rem;
+    color: var(--grey);
+    margin-top: 1.4rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--line);
+  }
+  .community-note strong { color: var(--purple); font-weight: 600; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .status-dot { animation: none; }
+  }
+</style>
