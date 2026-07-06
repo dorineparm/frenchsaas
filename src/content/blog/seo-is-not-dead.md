@@ -43,4 +43,6 @@ That's why "SEO translation" as a mechanical task deserved to die. What replaces
 
 SEO is not dead. Lazy SEO is. And in a market where 40% of buyers won't purchase in a foreign language, that's excellent news for anyone willing to do it properly.
 
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\__
+
 Entering the French market and wondering what your content is missing? [Let's talk](linkedin.com/in/dorine-parmentier/fr/).
