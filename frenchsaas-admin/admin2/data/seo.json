@@ -1,0 +1,26 @@
+{
+  "metrics":{"visitors":1420,"clicks":312,"position":"18.3"},
+  "queries":[
+    {"query":"French SaaS translator","clicks":82,"impressions":920,"position":7.8},
+    {"query":"French SEO translation","clicks":46,"impressions":730,"position":11.4},
+    {"query":"SaaS localization French","clicks":31,"impressions":510,"position":14.2},
+    {"query":"localization QA French","clicks":19,"impressions":460,"position":16.9}
+  ],
+  "pages":[
+    {"url":"/","issue":"Meta description à renforcer","priority":"Haute"},
+    {"url":"/services/","issue":"Ajouter des liens internes vers les articles","priority":"Moyenne"},
+    {"url":"/blog/french-seo-translation-checklist-saas/","issue":"Créer une FAQ en bas de page","priority":"Haute"}
+  ],
+  "issues":[
+    "Ajouter un sitemap.xml si absent",
+    "Vérifier les balises Open Graph",
+    "Raccourcir les méta-descriptions trop longues",
+    "Ajouter des liens internes depuis les articles vers les services"
+  ],
+  "opportunities":[
+    "SaaS translation pricing",
+    "French localization QA checklist",
+    "How to localize onboarding flows for France",
+    "French UX copywriting for B2B SaaS"
+  ]
+}
