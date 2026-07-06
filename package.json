@@ -1,15 +1,13 @@
 {
-  "name": "frenchsaas",
-  "type": "module",
+  "name": "frenchsaas-admin2-cms",
   "version": "1.0.0",
   "private": true,
+  "description": "Mini CMS Netlify/GitHub pour FrenchSaaS",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "cms": "npx decap-server"
+    "dev": "netlify dev",
+    "zip": "cd .. && zip -r frenchsaas-cms-pack.zip frenchsaas-cms"
   },
-  "dependencies": {
-    "astro": "^4.16.18"
+  "devDependencies": {
+    "netlify-cli": "latest"
   }
 }
