@@ -27,7 +27,7 @@ const fmt = (d) =>
         </div>
       </div>
 
-      <h1 class="display-xl stagger">Helping your product feel at home in French.</h1>
+      <h1 class="display-xl stagger">Your product already speaks English. Now make it speak French.</h1>
 
       <p class="lede stagger">Localization, UX writing and linguistic QA for SaaS, tech and games — by a Language Lead who treats every string as a product decision.</p>
 
@@ -50,6 +50,52 @@ const fmt = (d) =>
       <span class="eyebrow reveal">Why it matters</span>
       <p class="reveal">France is one of the largest SaaS markets in Europe — and one of the least forgiving of machine-flavored copy. A French user can tell within one screen whether your product was <strong>localized</strong> or merely translated.</p>
       <p class="reveal" style="--d:0.12s;">Localization is not a string-replacement job. It is a series of expert linguistic decisions: tone, terminology, plurals, placeholders, CTAs, legal nuance. That is the work I do.</p>
+    </div>
+  </section>
+
+  <!-- ======== Services grid ======== -->
+  <section class="section services-section">
+    <div class="wrap">
+      <span class="eyebrow reveal">Services</span>
+      <h2 class="display-l reveal" style="margin-bottom:2.4rem;">What I can do for your product</h2>
+
+      <div class="svc-grid">
+        <a class="svc-card reveal" href="/services/">
+          <span class="svc-code">L10N</span>
+          <span class="svc-name">Software localization</span>
+          <span class="svc-desc">Your UI, onboarding, emails and help center — in French that feels native, strings handled right the first time.</span>
+          <span class="svc-arrow">→</span>
+        </a>
+        <a class="svc-card reveal" style="--d:0.05s;" href="/services/">
+          <span class="svc-code">UXW</span>
+          <span class="svc-name">UX writing &amp; CTAs</span>
+          <span class="svc-desc">Microcopy that converts in French: buttons, empty states and calls to action rewritten for how French users read and click.</span>
+          <span class="svc-arrow">→</span>
+        </a>
+        <a class="svc-card reveal" style="--d:0.1s;" href="/services/">
+          <span class="svc-code">LQA</span>
+          <span class="svc-name">Linguistic QA</span>
+          <span class="svc-desc">In-context review of your French build: consistency, truncations, register — with a prioritized report your team can act on.</span>
+          <span class="svc-arrow">→</span>
+        </a>
+        <a class="svc-card reveal" style="--d:0.15s;" href="/services/">
+          <span class="svc-code">LEAD</span>
+          <span class="svc-name">Language Lead</span>
+          <span class="svc-desc">I own your French language program: style guide, glossary, TM strategy, vendor review — quality that scales with releases.</span>
+          <span class="svc-arrow">→</span>
+        </a>
+        <a class="svc-card reveal" style="--d:0.2s;" href="/services/">
+          <span class="svc-code">SEO</span>
+          <span class="svc-name">SEO &amp; GEO content</span>
+          <span class="svc-desc">Content adapted for French search intent — and for the AI answer engines your future customers already ask.</span>
+          <span class="svc-arrow">→</span>
+        </a>
+        <a class="svc-card svc-card-cta reveal" style="--d:0.25s;" href="/services/">
+          <span class="svc-cta-label">All services</span>
+          <span class="svc-cta-sub">Not sure what you need? Let's figure it out.</span>
+          <span class="svc-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -136,6 +182,119 @@ const fmt = (d) =>
 </Base>
 
 <style>
+  /* ---------- Services grid ---------- */
+  .svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+  }
+  @media (max-width: 820px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px) { .svc-grid { grid-template-columns: 1fr; } }
+
+  .svc-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem 1.5rem 1.5rem;
+    border: 1px solid var(--line);
+    background: #fff;
+    text-decoration: none;
+    overflow: hidden;
+    isolation: isolate;
+    min-height: 200px;
+    transition: transform 0.32s cubic-bezier(0.22,1,0.36,1),
+                box-shadow 0.32s ease,
+                border-color 0.32s ease;
+  }
+  /* sweeping gradient wash */
+  .svc-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(155deg, var(--tint) 0%, #fff 55%);
+    opacity: 0;
+    transition: opacity 0.32s ease;
+  }
+  /* glow blob that follows into view */
+  .svc-card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 150px; height: 150px;
+    right: -50px; top: -50px;
+    background: radial-gradient(circle, rgba(83,74,183,0.16), transparent 70%);
+    transform: scale(0);
+    transition: transform 0.45s cubic-bezier(0.22,1,0.36,1);
+  }
+  .svc-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(83,74,183,0.18);
+    border-color: var(--purple);
+  }
+  .svc-card:hover::before { opacity: 1; }
+  .svc-card:hover::after { transform: scale(1.6); }
+
+  .svc-code {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--purple);
+    font-weight: 500;
+    display: inline-block;
+    transition: transform 0.32s cubic-bezier(0.22,1,0.36,1), letter-spacing 0.32s ease;
+    transform-origin: left;
+  }
+  .svc-card:hover .svc-code { transform: scale(1.25); letter-spacing: 0.18em; }
+
+  .svc-name {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin: 0.7rem 0 0.5rem;
+    line-height: 1.15;
+  }
+  .svc-desc {
+    font-size: 0.92rem;
+    color: var(--grey);
+    line-height: 1.55;
+  }
+  .svc-arrow {
+    font-family: var(--body);
+    font-size: 1.3rem;
+    color: var(--purple);
+    margin-top: auto;
+    padding-top: 1rem;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .svc-card:hover .svc-arrow { opacity: 1; transform: translateX(0); }
+
+  /* CTA card (last cell) */
+  .svc-card-cta {
+    background: linear-gradient(150deg, var(--purple), var(--purple-deep));
+    border-color: transparent;
+    justify-content: center;
+  }
+  .svc-card-cta::before { background: linear-gradient(150deg, var(--purple-deep), var(--purple)); }
+  .svc-card-cta:hover { border-color: transparent; }
+  .svc-cta-label {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  .svc-cta-sub {
+    font-size: 0.9rem;
+    color: #D9D5F5;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .svc-card-cta .svc-arrow { color: #fff; opacity: 1; transform: none; }
+  .svc-card-cta:hover .svc-arrow { transform: translateX(5px); }
+
   /* ---------- Hero layout with photo ---------- */
   .hero-layout {
     display: grid;
