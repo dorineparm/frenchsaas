@@ -1,0 +1,13 @@
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/admin2"
+  to = "/admin2/"
+  status = 301
+
+[[redirects]]
+  from = "/admin2/*"
+  to = "/admin2/index.html"
+  status = 200
