@@ -513,7 +513,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.14; }
 @media (max-width: 640px) {
   .stat-row { grid-template-columns: 1fr; gap: 1.4rem; }
 }
-}
+
 
 /* ---------- Form feedback ---------- */
 .form-note { font-size: 0.85rem; color: var(--grey); }
