@@ -492,6 +492,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.14; }
 .form-note { font-size: 0.85rem; color: var(--grey); }
 
    /* ---------- Stat row (Why it matters) ---------- */
+/* ---------- Stat row (Why it matters) ---------- */
 .stat-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -499,7 +500,17 @@ h1, h2, h3 { font-family: var(--display); font-weight: 600; line-height: 1.14; }
   margin-top: 2.6rem;
   max-width: 46em;
 }
-.stat { border-left: 2px solid var(--purple); padding: 0.2rem 0 0.2rem 1.1rem; }
+.stat {
+  text-align: center;
+  padding: 0.2rem 1rem;
+}
+.stat::before {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: var(--purple);
+  margin: 0 auto 0.8rem;
 }
 .stat-num {
   font-family: var(--display);
