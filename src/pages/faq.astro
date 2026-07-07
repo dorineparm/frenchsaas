@@ -1,0 +1,152 @@
+---
+import Base from '../layouts/Base.astro';
+
+const faqs = [
+  {
+    q: "How much does it cost to localize a SaaS product into French?",
+    a: "It depends on volume, complexity and format, but most SaaS localization projects are quoted per word or as a flat project rate. A small product UI (a few thousand words) is very different from a full platform with onboarding, emails and a help center. Tell me your string count and I'll come back with a clear scope and a fixed quote — no agency markup, no hidden layers."
+  },
+  {
+    q: "How long does French localization take?",
+    a: "A focused product UI can be turned around in days; a full localization program (UI, onboarding, help center, marketing) runs over weeks and is best handled as continuous localization rather than one big delivery. Timeline depends on volume, the number of context questions, and how localization-ready your strings already are. My readiness checklist helps you estimate this before we start."
+  },
+  {
+    q: "What's the difference between translation and localization?",
+    a: "Translation converts words; localization adapts your product so it feels native. That means handling French plural and gender rules, adapting CTAs and tone, respecting French formatting (dates, numbers, currency), and making linguistic decisions a word-for-word translation can't. A translated product reads as foreign; a localized one reads as if it was built in French."
+  },
+  {
+    q: "Should my French app use \"tu\" or \"vous\"?",
+    a: "French forces a formality choice English doesn't have, and it defines your entire brand voice. \"Vous\" is the safe, professional default for most B2B SaaS; \"tu\" suits younger, casual or community-driven products. The key is consistency everywhere — UI, emails, support, marketing. I help you decide once and document it in a style guide so it stays consistent as your team grows."
+  },
+  {
+    q: "Do you work directly with product teams, or through an agency?",
+    a: "Directly. You talk to the person actually making the linguistic decisions — in your Slack, your CAT tool, your repository if needed. No agency layers, no account managers relaying briefs, no telephone game between you and the linguist."
+  },
+  {
+    q: "Which file formats and tools do you work with?",
+    a: "I work inside your pipeline: XLIFF, JSON, PO, strings files, and common CAT tools and localization platforms. I handle ICU MessageFormat, named placeholders, plurals and gender correctly, and can plug into your repository or continuous localization setup rather than working around it."
+  },
+  {
+    q: "Can you help before we've written any French — at the planning stage?",
+    a: "Yes, and that's often the best time to involve me. Many French localization problems are baked in before translation begins: hard-coded strings, English plural logic, no room for text expansion. A readiness review at the planning stage saves costly rework after launch. My free readiness checklist is a good starting point."
+  },
+  {
+    q: "Do you also handle French SEO and content, not just the product?",
+    a: "Yes. French users search with different terms than a literal translation of your English keywords — and increasingly ask AI assistants rather than typing into Google. I adapt blog posts, landing pages and docs for French search intent and for generative engines, so your content is found and cited in the French market."
+  },
+  {
+    q: "Do you localize games as well as SaaS?",
+    a: "Yes. Alongside SaaS and tech, game localization is a core specialty — from store descriptions and UI to in-game text, with the register, tone and cultural adaptation that French players expect."
+  },
+  {
+    q: "How do we get started?",
+    a: "Tell me about your product, your timeline and roughly how many words or strings are involved. You'll get a clear scope and a fixed quote. From there, we agree on tone and terminology, I localize in-context, and you get files ready for your next release. The fastest way to begin is the contact form or a direct email."
+  },
+];
+
+// Schema.org FAQPage structured data for SEO + GEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.q,
+    "acceptedAnswer": { "@type": "Answer", "text": f.a },
+  })),
+};
+---
+<Base
+  current="faq"
+  title="French localization FAQ — cost, timeline & process | FrenchSaaS"
+  description="Answers on French localization for SaaS, tech and games: cost, timeline, tu vs vous, file formats, French SEO, and how to get started with a freelance French localization specialist."
+>
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">FAQ</span></div>
+      <h1 class="display-xl stagger">French localization, answered</h1>
+      <p class="lede stagger">Cost, timeline, process, and the questions SaaS and gaming teams ask before localizing into French.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap faq-wrap">
+      {faqs.map((f, i) => (
+        <details class="faq-item reveal" style={`--d:${Math.min(i * 0.04, 0.3)}s;`}>
+          <summary>
+            <span class="faq-q">{f.q}</span>
+            <span class="faq-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="faq-a"><p>{f.a}</p></div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Still have a question?</h2>
+      <p class="reveal" style="--d:0.08s;">Tell me about your product and I'll answer directly — in English or in French.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</Base>
+
+<style>
+  .faq-wrap { max-width: 46em; }
+  .faq-item {
+    border-top: 1px solid var(--line);
+  }
+  .faq-item:last-of-type { border-bottom: 1px solid var(--line); }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.4rem 0.4rem;
+    transition: color 0.2s ease;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-q {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    color: var(--ink);
+    line-height: 1.3;
+    transition: color 0.2s ease;
+  }
+  .faq-item summary:hover .faq-q { color: var(--purple); }
+  .faq-icon {
+    flex: 0 0 auto;
+    position: relative;
+    width: 18px; height: 18px;
+  }
+  .faq-icon::before, .faq-icon::after {
+    content: "";
+    position: absolute;
+    background: var(--purple);
+    transition: transform 0.28s ease, opacity 0.28s ease;
+  }
+  .faq-icon::before { left: 0; top: 8px; width: 18px; height: 2px; }
+  .faq-icon::after { left: 8px; top: 0; width: 2px; height: 18px; }
+  .faq-item[open] .faq-icon::after { transform: scaleY(0); opacity: 0; }
+  .faq-a {
+    overflow: hidden;
+    padding: 0 0.4rem 1.5rem;
+    animation: faqReveal 0.35s ease;
+  }
+  .faq-a p { color: var(--grey); max-width: 42em; margin: 0; }
+  @keyframes faqReveal {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .faq-a { animation: none; }
+    .faq-icon::before, .faq-icon::after { transition: none; }
+  }
+</style>
