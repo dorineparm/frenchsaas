@@ -1,0 +1,362 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
+const fmt = (d) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+---
+<Base current="home">
+  <!-- ======== Hero ======== -->
+  <section class="hero">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <span class="deco deco-locale" data-parallax="0.32" aria-hidden="true">fr-FR</span>
+
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">en-US <span class="arrow">→</span> fr-FR</span></div>
+
+      <div class="stagger">
+        <div class="lang-toggle" role="navigation" aria-label="This page in English or French">
+          <a href="/" aria-current="page">EN</a>
+          <a href="/fr/">FR</a>
+        </div>
+      </div>
+
+      <h1 class="display-xl stagger">Your product already speaks English. Now make it speak French.</h1>
+
+      <p class="lede stagger">Localization, UX writing and linguistic QA for SaaS, tech and games — by a Language Lead who treats every string as a product decision.</p>
+
+      <div class="hero-cta stagger">
+        <a class="btn btn-solid" href="/contact/">Start a project</a>
+        <a class="btn btn-ghost" href="/services/">See services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Manifesto ======== -->
+  <section class="section manifesto">
+    <div class="wrap">
+      <span class="eyebrow reveal">Why it matters</span>
+      <p class="reveal">France is one of the largest SaaS markets in Europe — and one of the least forgiving of machine-flavored copy. A French user can tell within one screen whether your product was <strong>localized</strong> or merely translated.</p>
+      <p class="reveal" style="--d:0.12s;">Localization is not a string-replacement job. It is a series of expert linguistic decisions: tone, terminology, plurals, placeholders, CTAs, legal nuance. That is the work I do.</p>
+    </div>
+  </section>
+
+
+  <!-- ======== Client grid ======== -->
+  <section class="section clients-section">
+    <div class="wrap">
+      <p class="clients-label reveal">Trusted by teams at</p>
+      <div class="client-grid">
+
+        <!-- Remote — logo -->
+        <div class="client-card reveal">
+          <div class="client-card-inner">
+            <img class="client-logo" src="/images/clients/remote.webp" alt="Remote" loading="lazy" />
+          </div>
+          <span class="client-sector">HR &amp; global payroll platform</span>
+        </div>
+
+        <!-- Mio — logo -->
+        <div class="client-card reveal" style="--d:0.08s;">
+          <div class="client-card-inner">
+            <img class="client-logo" src="/images/clients/mio.jpg" alt="Mio" loading="lazy" />
+          </div>
+          <span class="client-sector">Cycling GPS &amp; dashcams</span>
+        </div>
+
+        <!-- Valve — texte (pas de logo, mention factuelle) -->
+        <div class="client-card client-card-text reveal" style="--d:0.16s;">
+          <div class="client-card-inner">
+            <span class="client-wordmark">Valve</span>
+          </div>
+          <span class="client-sector">Gaming · on selected projects</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Latest articles ======== -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">From the blog</span>
+      <h2 class="display-l reveal" style="margin-bottom:2rem;">Latest articles</h2>
+
+      {posts.map((post, i) => (
+        <article class="post-card reveal" style={`--d:${i * 0.07}s;`}>
+          <div class="post-meta">
+            {fmt(post.data.pubDate)}
+            <span class="tag">{post.data.tag}</span>
+          </div>
+          <div class="post-body">
+            {post.data.image && (
+              <a href={`/blog/${post.slug}/`} class="post-thumb" aria-hidden="true" tabindex="-1">
+                <img src={post.data.image} alt="" loading="lazy" />
+              </a>
+            )}
+            <div>
+              <h3><a href={`/blog/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <a class="read-more" href={`/blog/${post.slug}/`}>Read the article <span class="rm-arrow">→</span></a>
+            </div>
+          </div>
+        </article>
+      ))}
+
+      <p class="reveal" style="margin-top:2rem;">
+        <a class="btn btn-ghost" href="/blog/">All articles</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ======== Free resource / lead magnet ======== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="resource-card reveal">
+        <div class="resource-card-visual" aria-hidden="true">
+          <div class="pdf-mock">
+            <span class="pdf-mock-guill">«»</span>
+            <span class="pdf-mock-tag">FREE PDF</span>
+            <span class="pdf-mock-title">Is your product ready for French localization?</span>
+            <span class="pdf-mock-lines"><i></i><i></i><i></i></span>
+          </div>
+        </div>
+        <div class="resource-card-body">
+          <span class="eyebrow">Free checklist</span>
+          <h2 class="display-m">Is your product ready for French localization?</h2>
+          <p>A 20-point readiness audit for SaaS, tech &amp; gaming teams — the checklist I run through before taking on a French localization project. Spot the gaps before you translate a single string.</p>
+          <div class="resource-card-cta">
+            <a class="btn btn-solid" href="/files/french-localization-readiness-checklist.pdf" target="_blank" rel="noopener">Download the checklist →</a>
+            <span class="resource-card-note">PDF · 5 pages · no sign-up</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Sectors ======== -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">Sectors</span>
+      <div class="sectors reveal" style="--d:0.08s;">
+        <span>SaaS</span>
+        <span>Tech &amp; Cloud</span>
+        <span>AI / ML</span>
+        <span>Gaming</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA band ======== -->
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Ready to go <span class="guillemet" style="color:#fff;">« en français »</span> ?</h2>
+      <p class="reveal" style="--d:0.08s;">Tell me about your product, your timeline and your string count. You'll get a clear scope and a quote — no agency layers, no middlemen.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* ---------- Client grid ---------- */
+  .clients-section { padding-top: 3rem; padding-bottom: 3rem; }
+  .clients-label {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+  .client-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.1rem;
+    max-width: 50em;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) { .client-grid { grid-template-columns: 1fr; } }
+
+  .client-card {
+    position: relative;
+    border: 1px solid var(--line);
+    background: #fff;
+    overflow: hidden;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  /* violet wash rising from the bottom */
+  .client-card::before {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(0deg, var(--tint) 0%, #fff 70%);
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  }
+  .client-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(83,74,183,0.16);
+    border-color: var(--purple);
+  }
+  .client-card:hover::before { transform: translateY(0); }
+
+  .client-card-inner {
+    height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem 1.5rem 0.6rem;
+  }
+  .client-logo {
+    max-height: 34px;
+    max-width: 140px;
+    width: auto;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+  .client-card:hover .client-logo { filter: grayscale(0%); opacity: 1; transform: scale(1.04); }
+
+  .client-wordmark {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.9rem;
+    letter-spacing: 0.02em;
+    color: var(--grey);
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .client-card:hover .client-wordmark { color: var(--purple); transform: scale(1.04); }
+
+  .client-sector {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--grey);
+    text-align: center;
+    padding: 0 1rem 1.3rem;
+    line-height: 1.4;
+  }
+
+  /* The old EN/FR toggle becomes real links to / and /fr/ */
+  .lang-toggle a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    padding: 0.5rem 1.1rem;
+    color: var(--grey);
+    display: inline-block;
+  }
+  .lang-toggle a:hover { color: var(--purple); }
+  .lang-toggle a[aria-current="page"] { background: var(--purple); color: #fff; }
+
+  .post-body { display: flex; gap: 1.6rem; align-items: flex-start; }
+  .post-thumb { flex: 0 0 120px; order: 2; display: block; overflow: hidden; border: 1px solid var(--line); }
+  .post-thumb img { display: block; width: 120px; height: 120px; object-fit: cover; transition: transform 0.4s ease; }
+  .post-card:hover .post-thumb img { transform: scale(1.05); }
+  @media (max-width: 640px) {
+    .post-body { flex-direction: column; }
+    .post-thumb { order: 0; }
+    .post-thumb img { width: 100%; height: 160px; }
+  }
+
+  /* ---------- Free resource / lead magnet card ---------- */
+  .resource-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    background: #fff;
+  }
+  .resource-card-visual {
+    background: linear-gradient(150deg, var(--purple) 0%, var(--purple-deep) 100%);
+    padding: 3rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .pdf-mock {
+    background: #fff;
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 3 / 4;
+    box-shadow: 0 18px 40px rgba(23, 20, 43, 0.28);
+    padding: 1.4rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    position: relative;
+    transform: rotate(-3deg);
+    transition: transform 0.4s ease;
+  }
+  .resource-card:hover .pdf-mock { transform: rotate(0deg) translateY(-4px); }
+  .pdf-mock-guill {
+    position: absolute;
+    top: -0.3em;
+    right: 0.1em;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--tint);
+  }
+  .pdf-mock-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    color: var(--purple);
+    font-weight: 600;
+  }
+  .pdf-mock-title {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.2;
+    color: var(--ink);
+    position: relative;
+    z-index: 1;
+  }
+  .pdf-mock-lines { margin-top: auto; display: flex; flex-direction: column; gap: 0.4rem; }
+  .pdf-mock-lines i { height: 3px; background: var(--line); border-radius: 2px; display: block; }
+  .pdf-mock-lines i:nth-child(1) { width: 100%; }
+  .pdf-mock-lines i:nth-child(2) { width: 85%; }
+  .pdf-mock-lines i:nth-child(3) { width: 60%; }
+
+  .resource-card-body { padding: 2.6rem 2.4rem; }
+  .resource-card-body h2 { margin: 0.3rem 0 0.9rem; }
+  .resource-card-body p { color: var(--grey); font-size: 0.97rem; max-width: 34em; }
+  .resource-card-cta {
+    margin-top: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .resource-card-note {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: var(--grey);
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    .resource-card { grid-template-columns: 1fr; }
+    .resource-card-visual { padding: 2.4rem; }
+  }
+</style>
