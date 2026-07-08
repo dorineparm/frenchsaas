@@ -1,0 +1,185 @@
+---
+/**
+ * FallingLeaves.astro — petites feuilles vertes qui apparaissent
+ * et tombent doucement au scroll.
+ *
+ * Utilisation :
+ *   1. Place ce fichier dans src/components/FallingLeaves.astro
+ *   2. Importe-le et pose-le dans la page (ou le layout) voulue :
+ *
+ *        ---
+ *        import FallingLeaves from "../components/FallingLeaves.astro";
+ *        ---
+ *        <FallingLeaves />
+ *
+ *   - Dans /teachinglocalization/ uniquement → importe-le dans cette page.
+ *   - Sur tout le site → importe-le dans ton Layout principal.
+ *
+ * Zéro dépendance. Purement décoratif (aria-hidden, pointer-events:none).
+ * Respecte prefers-reduced-motion : aucune animation si l'utilisateur
+ * a désactivé les effets de mouvement.
+ *
+ * Réglages rapides : voir les data-* sur la balise ci-dessous.
+ *   data-max      → nombre max de feuilles à l'écran (défaut 34)
+ *   data-throttle → délai mini entre deux apparitions, en ms (défaut 110)
+ *   data-content  → largeur (px) de ta colonne de texte. Les feuilles
+ *                   tombent UNIQUEMENT dans les gouttières de part et
+ *                   d'autre, jamais sur le texte. Ajuste-la à la largeur
+ *                   réelle de ta colonne (défaut 780).
+ *   data-zindex   → superposition. 40 = devant le contenu, derrière une
+ *                   nav sticky à z-index plus élevé. Monte-le si tu veux
+ *                   que les feuilles passent aussi devant la nav.
+ */
+---
+
+<div
+  id="leaf-layer"
+  aria-hidden="true"
+  data-max="34"
+  data-throttle="110"
+  data-content="780"
+  data-zindex="40"
+></div>
+
+<style is:global>
+  #leaf-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 40;
+  }
+
+  #leaf-layer .leaf {
+    position: absolute;
+    top: -8%;
+    will-change: transform, opacity;
+    animation: fs-leaf-fall linear forwards;
+  }
+
+  #leaf-layer .leaf > span {
+    display: block;
+    transform-origin: center;
+    animation: fs-leaf-sway ease-in-out infinite alternate;
+  }
+
+  #leaf-layer .leaf svg {
+    display: block;
+  }
+
+  @keyframes fs-leaf-fall {
+    0%   { transform: translateY(0);      opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { transform: translateY(112vh);  opacity: 0; }
+  }
+
+  @keyframes fs-leaf-sway {
+    from { transform: translateX(calc(var(--amp) * -1)) rotate(-24deg); }
+    to   { transform: translateX(var(--amp))            rotate(24deg); }
+  }
+
+  /* Accessibilité : on coupe tout si l'utilisateur préfère moins de mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    #leaf-layer { display: none; }
+  }
+</style>
+
+<script>
+  (function () {
+    var layer = document.getElementById("leaf-layer");
+    if (!layer) return;
+
+    // Rien à faire si l'utilisateur a désactivé les animations
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    var MAX = parseInt(layer.dataset.max, 10) || 34;
+    var THROTTLE = parseInt(layer.dataset.throttle, 10) || 110;
+    var CONTENT = parseInt(layer.dataset.content, 10) || 780;
+    layer.style.zIndex = layer.dataset.zindex || "40";
+
+    // Trois silhouettes de feuilles + une palette de verts naturels
+    var shapes = [
+      "M12 1C6 6 4 12 6 18c1 3 4 5 6 5s5-2 6-5c2-6 0-12-6-17Z",
+      "M12 2C8 7 5 11 6 16c.6 3 3.4 6 6 6s5.4-3 6-6c1-5-2-9-6-14Z",
+      "M12 2C15 8 18 11 18 15c0 4-3 7-6 7s-6-3-6-7c0-4 3-7 6-13Z"
+    ];
+    var greens = ["#4f8f3a", "#5ba33f", "#3f7a2e", "#6bad4a", "#82b96b", "#457f34"];
+
+    var alive = 0;
+    var lastY = window.scrollY;
+    var lastSpawn = 0;
+
+    function rand(min, max) { return min + Math.random() * (max - min); }
+
+    // Position horizontale : uniquement dans les gouttières gauche/droite,
+    // en dehors de la colonne de texte (largeur CONTENT).
+    function spawnX(leaf) {
+      var vw = window.innerWidth;
+      var gutter = (vw - CONTENT) / 2;
+      if (gutter < leaf + 8) {
+        // Écran étroit : pas de vraie marge → fines bandes sur les bords
+        var edge = Math.min(vw * 0.12, 46);
+        return Math.random() < 0.5
+          ? rand(2, Math.max(2, edge - leaf))
+          : rand(vw - edge, vw - leaf - 2);
+      }
+      return Math.random() < 0.5
+        ? rand(4, gutter - leaf - 4)               // gouttière gauche
+        : rand(vw - gutter + 4, vw - leaf - 4);    // gouttière droite
+    }
+
+    function spawn(count) {
+      for (var i = 0; i < count; i++) {
+        if (alive >= MAX) return;
+
+        // 1,2× plus grosses qu'avant
+        var size = (rand(11, 22) * 1.2).toFixed(0);
+
+        var wrap = document.createElement("div");
+        wrap.className = "leaf";
+        wrap.style.left = spawnX(parseFloat(size)) + "px";
+        wrap.style.animationDuration = rand(6, 11).toFixed(2) + "s";
+
+        var inner = document.createElement("span");
+        inner.style.setProperty("--amp", rand(12, 34).toFixed(0) + "px");
+        inner.style.animationDuration = rand(1.9, 3.6).toFixed(2) + "s";
+
+        var color = greens[(Math.random() * greens.length) | 0];
+        var shape = shapes[(Math.random() * shapes.length) | 0];
+        var opacity = rand(0.55, 0.9).toFixed(2);
+
+        inner.innerHTML =
+          '<svg width="' + size + '" height="' + size + '" viewBox="0 0 24 24" style="opacity:' + opacity + '">' +
+            '<path d="' + shape + '" fill="' + color + '"/>' +
+            '<path d="M12 3 L12 21" stroke="rgba(255,255,255,.35)" stroke-width="1" fill="none"/>' +
+          "</svg>";
+
+        wrap.appendChild(inner);
+        layer.appendChild(wrap);
+        alive++;
+
+        wrap.addEventListener("animationend", function () {
+          if (this.parentNode === layer) layer.removeChild(this);
+          alive--;
+        });
+      }
+    }
+
+    window.addEventListener(
+      "scroll",
+      function () {
+        var now = Date.now();
+        var delta = Math.abs(window.scrollY - lastY);
+        lastY = window.scrollY;
+        if (now - lastSpawn < THROTTLE) return;
+        lastSpawn = now;
+        // On scrolle vite → une pincée de plus, mais toujours discret
+        spawn(delta > 40 ? 2 : 1);
+      },
+      { passive: true }
+    );
+  })();
+</script>
