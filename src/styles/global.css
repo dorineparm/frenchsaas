@@ -57,12 +57,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 }
 .site-header .wrap {
   display: flex;
-  align-items: baseline;
+  align-items: center;               /* center plutôt que baseline : plus sûr quand ça se resserre */
   justify-content: space-between;
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
-  gap: 1.5rem;
-  flex-wrap: wrap;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex-wrap: nowrap;                 /* le menu ne bascule plus sous le logo */
 }
 .wordmark {
   font-family: var(--display);
@@ -70,10 +70,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   font-weight: 700;
   color: var(--ink);
   letter-spacing: 0.01em;
+  flex-shrink: 0;                    /* le logo garde toujours sa taille */
 }
 .wordmark em { font-style: italic; font-weight: 600; color: var(--purple); }
 .wordmark .tld { color: var(--grey); font-weight: 400; font-size: 0.8em; }
-.site-nav { display: flex; gap: 2rem; }
+.site-nav {
+  display: flex;
+  gap: clamp(0.85rem, 1.6vw, 2rem);  /* l'espacement se resserre quand la place manque */
+  flex-wrap: wrap;                   /* filet de sécurité : au pire les liens s'alignent à droite, jamais sous le logo */
+  justify-content: flex-end;
+}
 .site-nav a {
   font-family: "Inter", var(--body), sans-serif;
   font-size: 0.85rem;
@@ -83,10 +89,17 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
   color: var(--ink);
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;               /* "Teaching localization" ne se coupe jamais en deux */
   transition: color 0.18s ease, border-color 0.18s ease;
 }
 .site-nav a:hover { color: var(--purple); border-bottom-color: var(--tint); }
 .site-nav a[aria-current="page"] { color: var(--purple); border-bottom-color: var(--purple); }
+
+/* Sous 860px : menu empilé, volontairement, comme sur mobile */
+@media (max-width: 860px) {
+  .site-header .wrap { flex-wrap: wrap; }
+  .site-nav { width: 100%; justify-content: flex-start; gap: 0.75rem 1.3rem; }
+}
 
 /* ---------- Type utilities ---------- */
 .eyebrow {
