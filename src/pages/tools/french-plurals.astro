@@ -1,0 +1,191 @@
+---
+import Base from '../../layouts/Base.astro';
+
+// Kept as a frontmatter string so Astro doesn't parse the ICU braces as JSX
+const icuExample = `{count, plural,
+  =0    {Vous avez # article}
+  one   {Vous avez # article}
+  other {Vous avez # articles}
+}`;
+---
+<Base
+  current="tools"
+  title="French plural rules in ICU MessageFormat — interactive demo | FrenchSaaS"
+  description="An interactive demo of why French plurals break naive localization: 0 takes the singular, hard-coded plurals fail. Try it live with an ICU MessageFormat playground."
+>
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Interactive tool</span></div>
+      <h1 class="display-xl stagger">French plurals will break your UI</h1>
+      <p class="lede stagger">French plural rules don't match English ones. Move the slider and watch a naive translation break — then see how ICU MessageFormat fixes it.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap tool-wrap">
+
+      <!-- Slider control -->
+      <div class="tool-control reveal">
+        <label for="count-slider" class="tool-label">Item count: <strong id="count-value">0</strong></label>
+        <input type="range" id="count-slider" min="0" max="12" value="0" />
+        <div class="tool-scale" aria-hidden="true">
+          <span>0</span><span>2</span><span>4</span><span>6</span><span>8</span><span>10</span><span>12</span>
+        </div>
+      </div>
+
+      <!-- Three phones side by side -->
+      <div class="tool-compare reveal" style="--d:0.08s;">
+
+        <div class="tool-card">
+          <span class="tool-tag">English source</span>
+          <div class="tool-screen" id="screen-en">You have 0 items</div>
+          <p class="tool-note">Two forms: <code>one</code> / <code>other</code>.</p>
+        </div>
+
+        <div class="tool-card tool-card-bad">
+          <span class="tool-tag tag-bad">Naive FR translation</span>
+          <div class="tool-screen" id="screen-bad">Vous avez 0 articles</div>
+          <p class="tool-note" id="note-bad">Hard-coded plural. Watch what happens at 0 and 1.</p>
+        </div>
+
+        <div class="tool-card tool-card-good">
+          <span class="tool-tag tag-good">Correct FR «&nbsp;ICU&nbsp;»</span>
+          <div class="tool-screen" id="screen-good">Vous avez 0 article</div>
+          <p class="tool-note">Uses French plural categories. Always correct.</p>
+        </div>
+
+      </div>
+
+      <!-- The rule explained -->
+      <div class="tool-explain reveal" style="--d:0.16s;">
+        <h2>Why it breaks</h2>
+        <p>English has two plural categories: <code>one</code> (1) and <code>other</code> (everything else, including 0). French is different: <strong>0 and 1 both take the singular.</strong> "0 article", not "0 articles". A translator who simply copies the English plural logic — or a developer who hard-codes an "s" — produces «&nbsp;0 articles&nbsp;» and «&nbsp;1 articles&nbsp;», which no native speaker would write.</p>
+
+        <div class="tool-code">
+          <span class="tool-code-label">The ICU MessageFormat string that gets it right:</span>
+<pre><code>{icuExample}</code></pre>
+        </div>
+
+        <p class="tool-takeaway">The takeaway for product teams: don't let plural logic live in your code assuming English rules. Expose the full string to your linguist through ICU MessageFormat, and let the target language define its own categories. That's the difference between a translated product and a localized one.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Strings breaking in French?</h2>
+      <p class="reveal" style="--d:0.08s;">This is exactly the kind of thing I fix — plurals, gender, placeholders, done right the first time. Let's talk about your product.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var slider = document.getElementById('count-slider');
+      var countValue = document.getElementById('count-value');
+      var screenEn = document.getElementById('screen-en');
+      var screenBad = document.getElementById('screen-bad');
+      var screenGood = document.getElementById('screen-good');
+      var noteBad = document.getElementById('note-bad');
+      if (!slider) return;
+
+      function englishForm(n) {
+        return 'You have ' + n + (n === 1 ? ' item' : ' items');
+      }
+      // Naive translation: always adds "s" (the classic bug)
+      function badForm(n) {
+        return 'Vous avez ' + n + ' articles';
+      }
+      // Correct French: singular at 0 and 1
+      function goodForm(n) {
+        return 'Vous avez ' + n + (n <= 1 ? ' article' : ' articles');
+      }
+
+      function update() {
+        var n = parseInt(slider.value, 10);
+        countValue.textContent = n;
+        screenEn.textContent = englishForm(n);
+        screenBad.textContent = badForm(n);
+        screenGood.textContent = goodForm(n);
+
+        // Flag the bad card when it's actually wrong (n = 0 or 1)
+        var isWrong = (n <= 1);
+        screenBad.classList.toggle('is-wrong', isWrong);
+        noteBad.textContent = isWrong
+          ? '✗ Wrong: French takes the singular here.'
+          : 'Hard-coded plural. Watch what happens at 0 and 1.';
+      }
+
+      slider.addEventListener('input', update);
+      update();
+    })();
+  </script>
+</Base>
+
+<style>
+  .tool-wrap { max-width: 60em; }
+
+  /* Slider */
+  .tool-control { margin-bottom: 2.5rem; }
+  .tool-label { font-family: var(--body); font-size: 1rem; color: var(--ink); display: block; margin-bottom: 0.8rem; }
+  .tool-label strong { color: var(--purple); font-family: var(--display); font-size: 1.3rem; }
+  #count-slider {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px; border-radius: 2px;
+    background: var(--line); outline: none; cursor: pointer;
+  }
+  #count-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--purple); cursor: pointer;
+    box-shadow: 0 2px 8px rgba(83,74,183,0.4);
+    transition: transform 0.15s ease;
+  }
+  #count-slider::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  #count-slider::-moz-range-thumb {
+    width: 22px; height: 22px; border: none; border-radius: 50%;
+    background: var(--purple); cursor: pointer;
+    box-shadow: 0 2px 8px rgba(83,74,183,0.4);
+  }
+  .tool-scale {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 0.7rem; color: var(--grey);
+    margin-top: 0.5rem;
+  }
+
+  /* Compare cards */
+  .tool-compare { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 3rem; }
+  @media (max-width: 720px) { .tool-compare { grid-template-columns: 1fr; } }
+  .tool-card { border: 1px solid var(--line); background: #fff; padding: 1.3rem 1.4rem; display: flex; flex-direction: column; }
+  .tool-card-good { border-color: var(--purple); background: linear-gradient(160deg, var(--tint), #fff); }
+  .tool-tag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.9rem; }
+  .tag-good { color: var(--purple); }
+  .tag-bad { color: var(--grey); }
+  .tool-screen {
+    font-family: var(--body); font-size: 1.15rem; font-weight: 500;
+    color: var(--ink); padding: 1rem 0; border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line); margin-bottom: 0.9rem;
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+  .tool-screen.is-wrong { color: #C0392B; background: rgba(192,57,43,0.05); }
+  .tool-note { font-size: 0.82rem; color: var(--grey); margin: 0; line-height: 1.5; }
+  #note-bad { transition: color 0.2s ease; }
+
+  /* Explanation */
+  .tool-explain h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin-bottom: 1rem; }
+  .tool-explain p { color: var(--grey); max-width: 44em; margin-bottom: 1.2rem; }
+  .tool-explain strong { color: var(--ink); }
+  .tool-explain code { font-family: var(--mono); font-size: 0.9em; background: var(--tint); padding: 0.1em 0.4em; border-radius: 3px; color: var(--purple); }
+  .tool-code { margin: 1.6rem 0; }
+  .tool-code-label { display: block; font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.6rem; }
+  .tool-code pre { background: var(--ink); color: #EDEBFA; padding: 1.3rem 1.5rem; overflow-x: auto; border-radius: 4px; }
+  .tool-code pre code { font-family: var(--mono); font-size: 0.85rem; line-height: 1.6; background: none; padding: 0; color: inherit; }
+  .tool-takeaway {
+    border-left: 3px solid var(--purple); padding-left: 1.3rem;
+    font-family: var(--display); font-style: italic; font-size: 1.1rem;
+    color: var(--ink) !important; max-width: 42em;
+  }
+</style>
