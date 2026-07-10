@@ -5,7 +5,7 @@ description: Behind every intuitive SaaS product are thousands of tiny
   linguistic decisions users will (hopefully) never notice.
 pubDate: 2026-07-06
 tag: SaaS, Localization
-image: /images/uploads/water-your-plants-review-your-strings.-1-.png
+image: ""
 ---
 There is a question I hear surprisingly often: *"What exactly do you translate?"*
 
