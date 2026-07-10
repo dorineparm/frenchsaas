@@ -1,0 +1,355 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  current="steam"
+  title="Steam store & game localization in French for indie studios | FrenchSaaS"
+  description="French localization of your Steam store page and launch marketing for indie studios: store description, trailer subtitles, press kit, patch notes. Reach French players — even before your game is fully localized."
+>
+  <!-- ======== Hero ======== -->
+  <section class="hero">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">For indie studios &amp; developers</span></div>
+      <h1 class="display-xl stagger">Your Steam page in French that actually sells your game.</h1>
+      <p class="lede stagger">You built the game. Don't let a rough, machine-translated store page cost you wishlists and sales in one of Steam's biggest European audiences.</p>
+      <div class="hero-cta stagger">
+        <a class="btn btn-solid" href="/contact/">Get a quote</a>
+        <a class="btn btn-ghost" href="#scope">See what I translate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Problem + before/after widget ======== -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">The problem</span>
+      <h2 class="display-l reveal">French players can tell — before they even wishlist</h2>
+      <p class="reveal problem-p">France is a large, vocal Steam market. A clumsy, auto-translated store page doesn't just read badly — it quietly kills wishlist conversions before your game even launches. Indie studios often skip French or run it through machine translation to save time. It's a false economy: your store page is your single most important conversion asset.</p>
+
+      <!-- WIDGET 1 : before / after store card -->
+      <div class="sim reveal" style="--d:0.1s;">
+        <div class="sim-toggle" role="tablist" aria-label="Translation quality">
+          <button id="tab-auto" class="sim-tab is-active" role="tab" aria-selected="true">Machine translation</button>
+          <button id="tab-loc" class="sim-tab" role="tab" aria-selected="false">Localized «&nbsp;by me&nbsp;»</button>
+        </div>
+
+        <div class="store-card" id="store-card">
+          <div class="store-media" aria-hidden="true">
+            <span class="store-media-label">YOUR GAME</span>
+            <span class="store-media-sub" id="store-genre">Roguelike · Action</span>
+          </div>
+          <div class="store-body">
+            <h3 class="store-title" id="store-title">Le Donjon Sans Fin</h3>
+            <p class="store-short" id="store-short">Descendez dans le donjon, tuez les monstres et devenez plus fort. Beaucoup de niveaux et objets à trouver !</p>
+            <ul class="store-feats" id="store-feats">
+              <li>Généré procéduralement</li>
+              <li>Permadeath hardcore</li>
+              <li>Plus de 100 objets</li>
+            </ul>
+            <div class="store-verdict" id="store-verdict">
+              <span class="verdict-flag verdict-bad" id="verdict-flag">✗ Reads like auto-translation</span>
+            </div>
+          </div>
+        </div>
+        <p class="sim-caption">Toggle the tabs — same game, two very different first impressions for a French player.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Text expansion simulator ======== -->
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow reveal">A hidden trap</span>
+      <h2 class="display-l reveal">French runs longer — and breaks your buttons</h2>
+      <p class="reveal problem-p">English to French text expands by 15–25% on average. A button or capsule label that fits in English overflows in French. Pick a UI string and watch what happens when the layout wasn't built for it.</p>
+
+      <!-- WIDGET 2 : text expansion -->
+      <div class="sim reveal" style="--d:0.1s;">
+        <div class="exp-picker" id="exp-picker">
+          <button class="exp-choice is-active" data-key="wishlist">Wishlist</button>
+          <button class="exp-choice" data-key="buy">Buy Now</button>
+          <button class="exp-choice" data-key="addcart">Add to Cart</button>
+          <button class="exp-choice" data-key="play">Play</button>
+        </div>
+        <div class="exp-stage">
+          <div class="exp-col">
+            <span class="exp-lang">EN</span>
+            <div class="exp-btn" id="exp-en">Wishlist</div>
+            <span class="exp-len" id="exp-en-len">8 characters</span>
+          </div>
+          <div class="exp-col">
+            <span class="exp-lang">FR</span>
+            <div class="exp-btn exp-btn-fr" id="exp-fr">
+              <span id="exp-fr-text">Ajouter à ma liste de souhaits</span>
+            </div>
+            <span class="exp-len" id="exp-fr-len">+275% — overflows</span>
+          </div>
+        </div>
+        <p class="sim-caption">The button box is the same width. In French, the label spills out — unless someone plans for it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Interactive launch checklist ======== -->
+  <section class="section" id="scope">
+    <div class="wrap">
+      <span class="eyebrow reveal">What I translate</span>
+      <h2 class="display-l reveal">Everything that sells your game in French</h2>
+      <p class="reveal problem-p">A Steam launch is far more than the store description. Tick what applies to your project — and see how much of the player-facing journey is worth localizing.</p>
+
+      <!-- WIDGET 3 : interactive checklist -->
+      <div class="sim reveal" style="--d:0.1s;">
+        <div class="check-grid" id="check-grid">
+          <label class="check-item"><input type="checkbox" checked /> <span>Short description <em>(your 300-char hook)</em></span></label>
+          <label class="check-item"><input type="checkbox" checked /> <span>About This Game <em>(long description)</em></span></label>
+          <label class="check-item"><input type="checkbox" checked /> <span>Feature bullets &amp; headers</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Screenshot &amp; GIF captions</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Early Access notice</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Edition &amp; DLC descriptions</span></label>
+          <label class="check-item"><input type="checkbox" checked /> <span>Trailer subtitles &amp; captions</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Press kit &amp; press release</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Steam announcements &amp; patch notes</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Wishlist &amp; launch campaigns</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Social &amp; Discord posts</span></label>
+          <label class="check-item"><input type="checkbox" /> <span>Crowdfunding page (Kickstarter, Ulule…)</span></label>
+        </div>
+        <div class="check-bar">
+          <div class="check-count"><strong id="check-num">4</strong> of 12 elements to localize for your launch</div>
+          <a class="btn btn-solid check-cta" href="/contact/">Get a quote for these →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== How I fit ======== -->
+  <section class="section fit-section">
+    <div class="wrap">
+      <span class="eyebrow reveal">How I fit into your team</span>
+      <h2 class="display-l reveal">Where I add value — and where I don't</h2>
+      <p class="reveal problem-p">Good localization respects the chain of quality. I'm upfront about when I'm the right fit for your project.</p>
+      <div class="fit-grid reveal" style="--d:0.08s;">
+        <div class="fit-col">
+          <div class="fit-label">If you already have a localization team</div>
+          <p>They're the right people for your marketing too. They defined how your world, characters and mechanics speak in French — and your store page should speak exactly the same language. I'm not here to replace them: I'm glad to step back, or to support them where it helps.</p>
+        </div>
+        <div class="fit-col fit-col-accent">
+          <div class="fit-label">If you don't have French localization yet</div>
+          <p>That's exactly where I come in — and here's what many indie studios miss: <strong>your game doesn't have to be fully localized for a French store page to be worth it.</strong> Your page can clearly show the game is in English (with French subtitles, if you have them) while still reaching French players in their own language. A French store page is often the first step into the market — an honest, low-risk way to test French demand and start building an audience.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA ======== -->
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Bringing your game to French players?</h2>
+      <p class="reveal" style="--d:0.08s;">Tell me about your project and your launch window. You'll get a clear scope and a fair quote — indie-friendly, no agency layers.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      // ---------- Widget 1 : before / after ----------
+      var content = {
+        auto: {
+          genre: "Roguelike · Action",
+          title: "Le Donjon Sans Fin",
+          short: "Descendez dans le donjon, tuez les monstres et devenez plus fort. Beaucoup de niveaux et objets à trouver !",
+          feats: ["Généré procéduralement", "Permadeath hardcore", "Plus de 100 objets"],
+          flag: "\u2717 Reads like auto-translation",
+          bad: true
+        },
+        loc: {
+          genre: "Roguelike · Action",
+          title: "Le Donjon sans fin",
+          short: "Plongez toujours plus profond, taillez-vous un chemin parmi les monstres et devenez plus redoutable à chaque run. Des dizaines de niveaux, des centaines d'objets à débusquer.",
+          feats: ["Niveaux générés à chaque partie", "Mort permanente, sensations fortes", "Plus de 100 objets à collectionner"],
+          flag: "\u2713 Reads like it was written in French",
+          bad: false
+        }
+      };
+      var tabAuto = document.getElementById("tab-auto");
+      var tabLoc = document.getElementById("tab-loc");
+      function render(mode) {
+        var c = content[mode];
+        document.getElementById("store-genre").textContent = c.genre;
+        document.getElementById("store-title").textContent = c.title;
+        document.getElementById("store-short").textContent = c.short;
+        var ul = document.getElementById("store-feats");
+        ul.innerHTML = "";
+        c.feats.forEach(function (f) {
+          var li = document.createElement("li");
+          li.textContent = f;
+          ul.appendChild(li);
+        });
+        var flag = document.getElementById("verdict-flag");
+        flag.textContent = c.flag;
+        flag.className = "verdict-flag " + (c.bad ? "verdict-bad" : "verdict-good");
+        document.getElementById("store-card").classList.toggle("is-loc", !c.bad);
+      }
+      if (tabAuto) {
+        tabAuto.addEventListener("click", function () {
+          tabAuto.classList.add("is-active"); tabLoc.classList.remove("is-active");
+          tabAuto.setAttribute("aria-selected", "true"); tabLoc.setAttribute("aria-selected", "false");
+          render("auto");
+        });
+        tabLoc.addEventListener("click", function () {
+          tabLoc.classList.add("is-active"); tabAuto.classList.remove("is-active");
+          tabLoc.setAttribute("aria-selected", "true"); tabAuto.setAttribute("aria-selected", "false");
+          render("loc");
+        });
+      }
+
+      // ---------- Widget 2 : text expansion ----------
+      var expData = {
+        wishlist: { en: "Wishlist", fr: "Ajouter à ma liste de souhaits", enLen: "8 characters", pct: "+275%" },
+        buy:      { en: "Buy Now",  fr: "Acheter maintenant",             enLen: "7 characters", pct: "+143%" },
+        addcart:  { en: "Add to Cart", fr: "Ajouter au panier",           enLen: "11 characters", pct: "+45%" },
+        play:     { en: "Play",     fr: "Jouer",                          enLen: "4 characters", pct: "+25%" }
+      };
+      var picker = document.getElementById("exp-picker");
+      function renderExp(key) {
+        var d = expData[key];
+        document.getElementById("exp-en").textContent = d.en;
+        document.getElementById("exp-fr-text").textContent = d.fr;
+        document.getElementById("exp-en-len").textContent = d.enLen;
+        var frBox = document.getElementById("exp-fr");
+        var frText = document.getElementById("exp-fr-text");
+        // detect overflow after paint
+        window.requestAnimationFrame(function () {
+          var overflow = frText.scrollWidth > frBox.clientWidth - 24;
+          frBox.classList.toggle("is-overflow", overflow);
+          document.getElementById("exp-fr-len").textContent = overflow ? (d.pct + " — overflows") : (d.pct + " — fits");
+        });
+      }
+      if (picker) {
+        picker.addEventListener("click", function (e) {
+          var btn = e.target.closest(".exp-choice");
+          if (!btn) return;
+          picker.querySelectorAll(".exp-choice").forEach(function (b) { b.classList.remove("is-active"); });
+          btn.classList.add("is-active");
+          renderExp(btn.getAttribute("data-key"));
+        });
+        renderExp("wishlist");
+      }
+
+      // ---------- Widget 3 : checklist ----------
+      var grid = document.getElementById("check-grid");
+      function countChecks() {
+        var boxes = grid.querySelectorAll("input[type=checkbox]");
+        var n = 0;
+        boxes.forEach(function (b) { if (b.checked) n++; });
+        document.getElementById("check-num").textContent = n;
+      }
+      if (grid) {
+        grid.addEventListener("change", countChecks);
+        countChecks();
+      }
+    })();
+  </script>
+</Base>
+
+<style>
+  .problem-p { color: var(--grey); max-width: 42em; margin-bottom: 1.5rem; }
+
+  /* Generic sim frame */
+  .sim {
+    border: 1px solid var(--line);
+    background: #fff;
+    padding: 1.6rem;
+    margin-top: 1.5rem;
+  }
+  .sim-caption { font-size: 0.85rem; color: var(--grey); font-style: italic; margin: 1.2rem 0 0; text-align: center; }
+
+  /* ---- Widget 1 : store card ---- */
+  .sim-toggle { display: inline-flex; border: 1px solid var(--line); margin-bottom: 1.5rem; }
+  .sim-tab {
+    font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.04em;
+    padding: 0.6rem 1.2rem; border: none; background: #fff; color: var(--grey);
+    cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+  }
+  .sim-tab.is-active { background: var(--purple); color: #fff; }
+
+  .store-card {
+    display: grid; grid-template-columns: 200px 1fr; gap: 1.5rem;
+    border: 1px solid var(--line); overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .store-card.is-loc { border-color: var(--purple); box-shadow: 0 12px 30px rgba(83,74,183,0.12); }
+  @media (max-width: 620px) { .store-card { grid-template-columns: 1fr; } }
+  .store-media {
+    background: linear-gradient(150deg, var(--purple), var(--purple-deep));
+    min-height: 150px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 0.4rem; color: #fff;
+  }
+  .store-media-label { font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.05em; }
+  .store-media-sub { font-family: var(--mono); font-size: 0.7rem; color: #C7C2F0; letter-spacing: 0.06em; }
+  .store-body { padding: 1.4rem 1.5rem 1.5rem 0; }
+  @media (max-width: 620px) { .store-body { padding: 0 1.4rem 1.4rem; } }
+  .store-title { font-family: var(--display); font-weight: 600; font-size: 1.4rem; margin-bottom: 0.6rem; }
+  .store-short { font-size: 0.95rem; color: var(--grey); margin-bottom: 1rem; line-height: 1.55; }
+  .store-feats { list-style: none; margin: 0 0 1.2rem; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .store-feats li {
+    font-family: var(--mono); font-size: 0.72rem; color: var(--purple);
+    border: 1px solid var(--line); padding: 0.3rem 0.7rem; border-radius: 2px;
+  }
+  .verdict-flag { font-family: var(--mono); font-size: 0.78rem; padding: 0.4rem 0.8rem; display: inline-block; }
+  .verdict-bad { color: #C0392B; background: rgba(192,57,43,0.08); }
+  .verdict-good { color: #1E874B; background: rgba(30,135,75,0.08); }
+
+  /* ---- Widget 2 : expansion ---- */
+  .exp-picker { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.8rem; }
+  .exp-choice {
+    font-family: var(--mono); font-size: 0.78rem; padding: 0.5rem 1rem;
+    border: 1px solid var(--line); background: #fff; color: var(--ink); cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .exp-choice.is-active { background: var(--purple); color: #fff; border-color: var(--purple); }
+  .exp-stage { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+  @media (max-width: 620px) { .exp-stage { grid-template-columns: 1fr; gap: 1.4rem; } }
+  .exp-col { display: flex; flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+  .exp-lang { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; color: var(--grey); }
+  .exp-btn {
+    width: 160px; max-width: 100%;
+    background: var(--purple); color: #fff;
+    font-family: var(--body); font-weight: 500; font-size: 0.95rem;
+    padding: 0.7rem 1rem; border-radius: 3px;
+    white-space: nowrap; overflow: visible; position: relative;
+  }
+  .exp-btn-fr { display: flex; }
+  .exp-btn-fr.is-overflow { background: rgba(192,57,43,0.12); color: #C0392B; box-shadow: inset 0 0 0 1px #C0392B; }
+  .exp-btn-fr.is-overflow #exp-fr-text { outline: 1px dashed rgba(192,57,43,0.5); }
+  .exp-len { font-family: var(--mono); font-size: 0.72rem; color: var(--grey); }
+  .exp-btn-fr.is-overflow ~ .exp-len { color: #C0392B; }
+
+  /* ---- Widget 3 : checklist ---- */
+  .check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  @media (max-width: 620px) { .check-grid { grid-template-columns: 1fr; } }
+  .check-item {
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    padding: 0.8rem 0.4rem; border-top: 1px solid var(--line);
+    font-size: 0.92rem; cursor: pointer;
+  }
+  .check-item input { margin-top: 0.25rem; accent-color: var(--purple); width: 16px; height: 16px; flex: 0 0 auto; }
+  .check-item em { font-style: normal; color: var(--grey); font-size: 0.82rem; }
+  .check-bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--purple); flex-wrap: wrap;
+  }
+  .check-count { font-size: 1.05rem; }
+  .check-count strong { font-family: var(--display); font-size: 1.6rem; color: var(--purple); }
+  .check-cta { flex: 0 0 auto; }
+
+  /* ---- Fit ---- */
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.6rem; }
+  @media (max-width: 700px) { .fit-grid { grid-template-columns: 1fr; } }
+  .fit-col { border: 1px solid var(--line); background: #fff; padding: 1.6rem 1.7rem; }
+  .fit-col-accent { border-color: var(--purple); background: linear-gradient(160deg, var(--tint), #fff); }
+  .fit-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.9rem; }
+  .fit-col p { color: var(--grey); font-size: 0.95rem; margin: 0; }
+  .fit-col strong { color: var(--ink); }
+</style>
