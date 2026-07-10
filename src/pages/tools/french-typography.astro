@@ -1,0 +1,328 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  current="tools"
+  title="French typography converter — France, Belgium & Switzerland | FrenchSaaS"
+  description="An interactive French typography converter: correct spaces, guillemets and number formats for France, Belgium and Switzerland — plus how marketing claims differ legally across the three markets."
+>
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Interactive tool</span></div>
+      <h1 class="display-xl stagger">French typography isn't one standard — it's three</h1>
+      <p class="lede stagger">France, Belgium and Switzerland don't punctuate, space or format numbers the same way. Paste your text, pick a market, and get it right.</p>
+    </div>
+  </section>
+
+  <!-- ======== Widget 1 : typography converter ======== -->
+  <section class="section">
+    <div class="wrap tool-wrap">
+      <span class="eyebrow reveal">Converter</span>
+      <h2 class="display-l reveal" style="margin-bottom:1.2rem;">Punctuation &amp; guillemets</h2>
+
+      <div class="sim reveal" style="--d:0.08s;">
+        <div class="variant-picker" id="variant-picker" role="tablist">
+          <button class="variant-btn is-active" data-v="france" role="tab">France</button>
+          <button class="variant-btn" data-v="belgique" role="tab">Belgique</button>
+          <button class="variant-btn" data-v="suisse" role="tab">Suisse</button>
+        </div>
+
+        <div class="conv-grid">
+          <div class="conv-col">
+            <label class="conv-label" for="conv-in">Your text (English quotes, no spaces)</label>
+            <textarea id="conv-in" spellcheck="false">Prêt à commencer ? Cliquez sur "Jouer" : c'est gratuit ! Vraiment...</textarea>
+          </div>
+          <div class="conv-col">
+            <label class="conv-label" for="conv-out">Correct French typography</label>
+            <div id="conv-out" class="conv-out" aria-live="polite"></div>
+            <button class="conv-copy" id="conv-copy">Copy</button>
+          </div>
+        </div>
+        <p class="conv-rule" id="conv-rule"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Widget 2 : numbers & currency ======== -->
+  <section class="section">
+    <div class="wrap tool-wrap">
+      <span class="eyebrow reveal">Numbers &amp; money</span>
+      <h2 class="display-l reveal" style="margin-bottom:1.2rem;">Same amount, three formats</h2>
+      <p class="reveal conv-p">Type a price. Watch how thousands separators, decimals and currency placement change across markets — get this wrong and your pricing page looks foreign instantly.</p>
+
+      <div class="sim reveal" style="--d:0.08s;">
+        <div class="num-input-row">
+          <label for="num-in">Amount</label>
+          <input type="text" id="num-in" value="1234567.89" inputmode="decimal" />
+        </div>
+        <div class="num-results" id="num-results">
+          <div class="num-card">
+            <span class="num-flag">France</span>
+            <span class="num-out" id="num-fr">—</span>
+            <span class="num-cur" id="cur-fr">—</span>
+          </div>
+          <div class="num-card">
+            <span class="num-flag">Belgique</span>
+            <span class="num-out" id="num-be">—</span>
+            <span class="num-cur" id="cur-be">—</span>
+          </div>
+          <div class="num-card">
+            <span class="num-flag">Suisse</span>
+            <span class="num-out" id="num-ch">—</span>
+            <span class="num-cur" id="cur-ch">—</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== Reference table ======== -->
+  <section class="section">
+    <div class="wrap tool-wrap">
+      <span class="eyebrow reveal">At a glance</span>
+      <h2 class="display-l reveal" style="margin-bottom:1.2rem;">The differences that trip people up</h2>
+      <div class="ref-table reveal" style="--d:0.08s;">
+        <div class="ref-row ref-head">
+          <span></span><span>France</span><span>Belgique</span><span>Suisse</span>
+        </div>
+        <div class="ref-row">
+          <span class="ref-k">Space before <code>; ! ?</code></span>
+          <span>Narrow space</span><span>Narrow space</span><span class="ref-no">None</span>
+        </div>
+        <div class="ref-row">
+          <span class="ref-k">Space before <code>:</code></span>
+          <span>Yes</span><span>Yes</span><span class="ref-no">None</span>
+        </div>
+        <div class="ref-row">
+          <span class="ref-k">Thousands</span>
+          <span>1 234 (space)</span><span>1.234 (point)</span><span>1’234 (apostrophe)</span>
+        </div>
+        <div class="ref-row">
+          <span class="ref-k">Decimal</span>
+          <span>, (comma)</span><span>, (comma)</span><span>. (point)</span>
+        </div>
+        <div class="ref-row">
+          <span class="ref-k">Currency</span>
+          <span>12,50 €</span><span>12,50 €</span><span>CHF 12.50</span>
+        </div>
+      </div>
+      <p class="conv-note reveal">Note: conventions vary by house style and evolve over time — this reflects the most common professional usage. Belgian number formatting in particular sees both point and space for thousands.</p>
+    </div>
+  </section>
+
+  <!-- ======== Legal marketing section ======== -->
+  <section class="section legal-section">
+    <div class="wrap tool-wrap">
+      <span class="eyebrow reveal">Beyond typography</span>
+      <h2 class="display-l reveal" style="margin-bottom:1rem;">The same sales promise isn't legal everywhere</h2>
+      <p class="reveal conv-p">Typography is the visible layer. Underneath, a marketing claim that's fine in one French-speaking market can breach advertising law in another. Adapting copy across France, Belgium and Switzerland isn't just wording — it's compliance. Here's the landscape at a glance.</p>
+
+      <div class="legal-grid">
+        <div class="legal-card reveal">
+          <div class="legal-flag">France</div>
+          <p>Governed by the <strong>Code de la consommation</strong> and its rules on <em>pratiques commerciales trompeuses</em> (misleading commercial practices), enforced by the DGCCRF. Superlatives like « le meilleur » or « n°1 » generally need to be substantiated. « Gratuit » and « offert » are regulated — you can't call something free if the cost is quietly recouped. Environmental claims («&nbsp;écologique&nbsp;», «&nbsp;vert&nbsp;») face tightening scrutiny under the loi Climat, and reference pricing on discounts is strictly framed.</p>
+        </div>
+        <div class="legal-card reveal" style="--d:0.06s;">
+          <div class="legal-flag">Belgique</div>
+          <p>Governed by the <strong>Code de droit économique</strong> (Book VI), transposing the EU directive on unfair commercial practices — so the ban on misleading and aggressive claims mirrors France. The specificity to watch is <strong>language</strong>: consumer information often must be provided in the language of the region (French in Wallonia, Dutch in Flanders, both in Brussels). A promise made in the wrong language can itself be a problem.</p>
+        </div>
+        <div class="legal-card reveal" style="--d:0.12s;">
+          <div class="legal-flag">Suisse</div>
+          <p>Outside the EU, so a different basis: the <strong>Loi contre la concurrence déloyale (LCD)</strong> treats misleading advertising as unfair competition, with the <em>Commission suisse pour la loyauté</em> handling complaints. Claims must also work across a trilingual market (French, German, Italian), and origin labels like « Swiss made » carry their own rules. Thresholds and enforcement differ from the EU, so an EU-compliant claim isn't automatically safe here.</p>
+        </div>
+      </div>
+
+      <div class="legal-takeaway reveal">
+        <p>The localization takeaway: a superlative that passes loosely in one market may need proof in France; a «&nbsp;gratuit&nbsp;» framing differs; and in Belgium the <em>language</em> of the promise carries legal weight. Adapting marketing copy across these markets is exactly the kind of expert call I flag before it becomes a compliance problem — not just a translation.</p>
+      </div>
+
+      <p class="legal-disclaimer reveal">This is general information for orientation, not legal advice. Advertising and consumer law is detailed and changes — always confirm specific claims with qualified local counsel before publishing.</p>
+    </div>
+  </section>
+
+  <!-- ======== CTA ======== -->
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Localizing for more than one French market?</h2>
+      <p class="reveal" style="--d:0.08s;">France, Belgium, Switzerland — the words, the typography and the legal footing all shift. Let's make sure your copy lands right in each.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function () {
+      var FINE = "\u202F"; // narrow no-break space
+      var NBSP = "\u00A0"; // no-break space
+
+      // ---------- Widget 1 : converter ----------
+      var input = document.getElementById("conv-in");
+      var output = document.getElementById("conv-out");
+      var ruleEl = document.getElementById("conv-rule");
+      var picker = document.getElementById("variant-picker");
+      var copyBtn = document.getElementById("conv-copy");
+      var variant = "france";
+
+      var rules = {
+        france: "France: narrow space before ; ! ? — space before : — guillemets «\u202F…\u202F»",
+        belgique: "Belgium: same as France — narrow space before high punctuation, guillemets «\u202F…\u202F»",
+        suisse: "Switzerland: no space before ; : ! ? — tight guillemets «…»"
+      };
+
+      function convert(text, v) {
+        var t = text;
+        // ellipsis
+        t = t.replace(/\.\.\./g, "\u2026");
+        // strip existing spaces before high punctuation first
+        t = t.replace(/[\s\u202F\u00A0]*([;:!?])/g, "$1");
+        if (v === "france" || v === "belgique") {
+          t = t.replace(/([;!?])/g, FINE + "$1");
+          t = t.replace(/:/g, NBSP + ":");
+          var openA = true;
+          t = t.replace(/"/g, function () {
+            openA = !openA;
+            return openA ? (FINE + "\u00BB") : ("\u00AB" + FINE);
+          });
+        } else if (v === "suisse") {
+          // no space added before punctuation (already stripped)
+          var openB = true;
+          t = t.replace(/"/g, function () {
+            openB = !openB;
+            return openB ? "\u00BB" : "\u00AB";
+          });
+        }
+        return t;
+      }
+
+      function render() {
+        output.textContent = convert(input.value, variant);
+        ruleEl.textContent = rules[variant];
+      }
+      if (input) {
+        input.addEventListener("input", render);
+        picker.addEventListener("click", function (e) {
+          var b = e.target.closest(".variant-btn");
+          if (!b) return;
+          picker.querySelectorAll(".variant-btn").forEach(function (x) { x.classList.remove("is-active"); });
+          b.classList.add("is-active");
+          variant = b.getAttribute("data-v");
+          render();
+        });
+        copyBtn.addEventListener("click", function () {
+          navigator.clipboard.writeText(output.textContent).then(function () {
+            copyBtn.textContent = "Copied";
+            setTimeout(function () { copyBtn.textContent = "Copy"; }, 1500);
+          });
+        });
+        render();
+      }
+
+      // ---------- Widget 2 : numbers ----------
+      var numIn = document.getElementById("num-in");
+      function group(intStr, sep) {
+        return intStr.replace(/\B(?=(\d{3})+(?!\d))/g, sep);
+      }
+      function fmt(raw, thousands, decimal) {
+        var n = parseFloat(String(raw).replace(",", "."));
+        if (isNaN(n)) return "—";
+        var parts = n.toFixed(2).split(".");
+        return group(parts[0], thousands) + decimal + parts[1];
+      }
+      function renderNums() {
+        var v = numIn.value;
+        var fr = fmt(v, FINE, ",");
+        var be = fmt(v, ".", ",");
+        var ch = fmt(v, "\u2019", ".");
+        document.getElementById("num-fr").textContent = fr;
+        document.getElementById("num-be").textContent = be;
+        document.getElementById("num-ch").textContent = ch;
+        document.getElementById("cur-fr").textContent = fr + FINE + "\u20AC";
+        document.getElementById("cur-be").textContent = be + FINE + "\u20AC";
+        document.getElementById("cur-ch").textContent = "CHF" + FINE + ch;
+      }
+      if (numIn) {
+        numIn.addEventListener("input", renderNums);
+        renderNums();
+      }
+    })();
+  </script>
+</Base>
+
+<style>
+  .tool-wrap { max-width: 54em; }
+  .conv-p { color: var(--grey); max-width: 44em; margin-bottom: 1.5rem; }
+
+  .sim { border: 1px solid var(--line); background: #fff; padding: 1.6rem; margin-top: 1.2rem; }
+
+  /* variant picker */
+  .variant-picker { display: inline-flex; border: 1px solid var(--line); margin-bottom: 1.4rem; }
+  .variant-btn {
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
+    padding: 0.55rem 1.3rem; border: none; background: #fff; color: var(--grey);
+    cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+  }
+  .variant-btn.is-active { background: var(--purple); color: #fff; }
+
+  /* converter grid */
+  .conv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  @media (max-width: 640px) { .conv-grid { grid-template-columns: 1fr; } }
+  .conv-label { display: block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.6rem; }
+  #conv-in {
+    width: 100%; min-height: 8rem; resize: vertical;
+    font-family: var(--body); font-size: 1rem; line-height: 1.6;
+    padding: 0.9rem 1rem; border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+  }
+  #conv-in:focus { outline: none; border-color: var(--purple); box-shadow: 0 0 0 3px rgba(83,74,183,0.12); }
+  .conv-out {
+    min-height: 8rem; font-size: 1rem; line-height: 1.6;
+    padding: 0.9rem 1rem; border: 1px solid var(--purple);
+    background: linear-gradient(160deg, var(--tint), #fff); color: var(--ink);
+    white-space: pre-wrap; word-break: break-word;
+  }
+  .conv-copy {
+    margin-top: 0.7rem; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 0.5rem 1rem; border: 1px solid var(--purple);
+    background: #fff; color: var(--purple); cursor: pointer; transition: background 0.2s ease, color 0.2s ease;
+  }
+  .conv-copy:hover { background: var(--purple); color: #fff; }
+  .conv-rule { font-family: var(--mono); font-size: 0.78rem; color: var(--purple); margin-top: 1.2rem; }
+
+  /* numbers */
+  .num-input-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.6rem; }
+  .num-input-row label { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--grey); }
+  #num-in { font-family: var(--mono); font-size: 1rem; padding: 0.6rem 0.9rem; border: 1px solid var(--line); background: var(--paper); color: var(--ink); width: 12rem; }
+  #num-in:focus { outline: none; border-color: var(--purple); }
+  .num-results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 640px) { .num-results { grid-template-columns: 1fr; } }
+  .num-card { border: 1px solid var(--line); padding: 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; }
+  .num-flag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--purple); }
+  .num-out { font-family: var(--display); font-size: 1.4rem; font-weight: 600; color: var(--ink); }
+  .num-cur { font-family: var(--mono); font-size: 0.85rem; color: var(--grey); }
+
+  /* reference table */
+  .ref-table { border: 1px solid var(--line); }
+  .ref-row { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; }
+  .ref-row > span { padding: 0.85rem 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; }
+  .ref-row:first-child > span { border-top: none; }
+  .ref-head > span { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--purple); background: var(--tint); }
+  .ref-k { color: var(--ink); font-weight: 500; }
+  .ref-k code { font-family: var(--mono); font-size: 0.85em; background: var(--tint); padding: 0.05em 0.3em; border-radius: 2px; color: var(--purple); }
+  .ref-no { color: #C0392B; }
+  .conv-note { font-size: 0.82rem; color: var(--grey); font-style: italic; margin-top: 1rem; max-width: 44em; }
+
+  /* legal */
+  .legal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem; }
+  @media (max-width: 780px) { .legal-grid { grid-template-columns: 1fr; } }
+  .legal-card { border: 1px solid var(--line); background: #fff; padding: 1.4rem 1.5rem; }
+  .legal-flag { font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--purple); margin-bottom: 0.7rem; }
+  .legal-card p { font-size: 0.9rem; color: var(--grey); margin: 0; line-height: 1.6; }
+  .legal-card strong { color: var(--ink); }
+  .legal-card em { font-style: italic; }
+  .legal-takeaway {
+    border-left: 3px solid var(--purple); background: var(--tint);
+    padding: 1.3rem 1.5rem; margin-top: 1.5rem;
+  }
+  .legal-takeaway p { font-family: var(--display); font-style: italic; font-size: 1.1rem; color: var(--ink); margin: 0; max-width: 46em; }
+  .legal-disclaimer { font-size: 0.8rem; color: var(--grey); font-style: italic; margin-top: 1.4rem; max-width: 46em; }
+</style>
