@@ -26,9 +26,11 @@ English has two plural forms: one and other. French treats zero as singular: "0 
 
 **Concretely:**
 
-English: `0 items`, `1 item`, `2 items`
-Naive French: `0 articles`, `1 articles`, `2 articles` ← the first two are wrong
-Correct French: `0 article`, `1 article`, `2 articles`
+> English: `0 items`, `1 item`, `2 items`
+>
+> Naive French: `0 articles`, `1 articles`, `2 articles` ← the first two are wrong
+>
+> Correct French: `0 article`, `1 article`, `2 articles`
 
 This is why ICU MessageFormat matters. It lets the target language define its own plural categories instead of inheriting English ones. If your strings expose plurals properly, French can be correct at 0, 1, and beyond. If they don't, no amount of good translation fixes it. The bug is in the architecture, not the words...
 
@@ -39,6 +41,7 @@ Why I bring this up first. This is the error I catch most often, and it's never 
 English has no equivalent, so teams underestimate it: French forces you to choose a formality register, and that choice colors your entire product voice.
 
 > Vous — the safe, professional default for B2B SaaS. Respectful, a little formal, hard to get wrong.
+>
 > Tu — younger, casual, community-driven products. Warmer, but riskier if your audience skews professional.
 
 Neither is "more correct", but inconsistency is always wrong. The failure mode isn't picking the wrong one; it's picking both by accident, so your onboarding says tu, your billing emails say vous, and your product feels like it was written by three different people. Decide once, document it, enforce it everywhere.
@@ -52,8 +55,11 @@ English to French expands 15–25% on average. A button sized for English overfl
 A few that catch teams out:
 
 > "Save" → "**Enregistrer**" (nearly double)
+>
 > "Wishlist" → "**Ajouter à ma liste de souhaits**" (from 8 characters to 30)
+>
 > "Settings" → "**Paramètres**"
+>
 > "Buy now" → "**Acheter maintenant**"
 
 This isn't a translation problem you can write your way out of — it's a design constraint that has to be planned for. The fix is boring and essential: flexible components, tested with real French strings, before launch rather than after a bug report.
