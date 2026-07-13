@@ -1,8 +1,8 @@
 ---
-title: "French Localization for SaaS: What actually makes or breaks it"
-description: A practical, no-fluff guide to localizing your SaaS into French —
+title: "French localization for SaaS: What actually makes or breaks it"
+description: "A practical, no-fluff guide to localizing your SaaS into French:
   the plural traps, the tu/vous decision, text expansion, ICU strings and legal
-  copy that separate a translated product from a native one.
+  copy that separate a translated product from a native one."
 pubDate: 2026-07-13
 tag: Localization
 ---
