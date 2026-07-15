@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  current="services"
+  title="Localize your SaaS into French — done right | FrenchSaaS"
+  description="Localize your SaaS product into French: UI, onboarding, emails, help center and marketing. Plurals, tu/vous, ICU strings and legal copy handled by a French Language Lead — not machine translation."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">SaaS &amp; tech products</span></div>
+      <h1 class="display-xl stagger">Localize your SaaS into French — the right way.</h1>
+      <p class="lede stagger">Not a machine-translated UI. A French version that reads like your product was built in French: consistent tone, correct plurals, native formatting, compliant legal copy.</p>
+      <div class="hero-cta stagger">
+        <a class="btn btn-solid" href="/contact/">Get a quote</a>
+        <a class="btn btn-ghost" href="#what">What I localize</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why it's more than translation -->
+  <section class="section">
+    <div class="wrap lp-wrap">
+      <span class="eyebrow reveal">The difference</span>
+      <h2 class="display-l reveal">A French user can tell within one screen</h2>
+      <p class="reveal lp-p">France is one of Europe's largest SaaS markets — and one of the least forgiving of machine-flavored copy. A French user knows almost instantly whether your product was localized or merely translated. The gap isn't vocabulary; it's the dozens of expert decisions underneath: plural logic, the tu/vous choice, text that expands 15–25%, CTAs adapted rather than translated, and legal copy that has to be compliant, not just readable.</p>
+    </div>
+  </section>
+
+  <!-- What I localize -->
+  <section class="section" id="what">
+    <div class="wrap lp-wrap">
+      <span class="eyebrow reveal">What I localize</span>
+      <h2 class="display-l reveal" style="margin-bottom:2rem;">Every surface your French users touch</h2>
+      <div class="lp-grid">
+        <div class="lp-card reveal">
+          <h3>Product UI</h3>
+          <p>Buttons, menus, states, errors — with plurals, gender and variables handled correctly through ICU MessageFormat.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.06s;">
+          <h3>Onboarding</h3>
+          <p>The first impression that decides whether French users stay. Clear, native, in your voice.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.12s;">
+          <h3>Transactional emails</h3>
+          <p>Welcome, billing, notifications — consistent tone across every touchpoint.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.18s;">
+          <h3>Help center &amp; docs</h3>
+          <p>Support content adapted for how French users actually search and read.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.24s;">
+          <h3>Marketing &amp; website</h3>
+          <p>Landing pages and campaigns that convert — adapted for French search intent, not translated word-for-word.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.3s;">
+          <h3>Legal &amp; privacy copy</h3>
+          <p>Consent flows, privacy notices and cookie banners where the French wording is part of GDPR compliance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fits your pipeline -->
+  <section class="section lp-tint">
+    <div class="wrap lp-wrap">
+      <span class="eyebrow reveal">How I work</span>
+      <h2 class="display-l reveal">I localize inside your pipeline, not around it</h2>
+      <p class="reveal lp-p">XLIFF, JSON, PO, your CAT tool or localization platform — I plug into your setup and your release cycle. No agency layers, no telephone game: you work directly with the person making the linguistic decisions, string by string. And as your product ships new features, I keep the French coherent, release after release — the way a Language Lead does.</p>
+      <p class="reveal" style="--d:0.1s;"><a class="lp-link" href="/services/">See the full process →</a></p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Bringing your SaaS to the French market?</h2>
+      <p class="reveal" style="--d:0.08s;">Tell me about your product and roughly how many strings are involved. You'll get a clear scope and a fair quote — no agency markup.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lp-wrap { max-width: 50em; }
+  .lp-p { color: var(--grey); max-width: 44em; font-size: 1.05rem; line-height: 1.7; }
+  .lp-tint { background: linear-gradient(160deg, var(--tint), transparent 70%); }
+  .lp-link { font-family: var(--mono); font-size: 0.85rem; color: var(--purple); text-decoration: none; }
+  .lp-link:hover { text-decoration: underline; }
+  .lp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  @media (max-width: 780px) { .lp-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .lp-grid { grid-template-columns: 1fr; } }
+  .lp-card {
+    border: 1px solid var(--line); background: #fff; padding: 1.4rem 1.5rem;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .lp-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(83,74,183,0.14); border-color: var(--purple); }
+  .lp-card h3 { font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .lp-card p { font-size: 0.9rem; color: var(--grey); line-height: 1.55; margin: 0; }
+</style>
