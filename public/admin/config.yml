@@ -10,6 +10,16 @@
 backend:
   name: git-gateway
   repo: dorineparm/frenchsaas
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/cd574871-3190-4ee6-b01b-4dd019eca981
+  gateway_url: https://gateway.decapbridge.com
+
+publish_mode: editorial_workflow
+
+media_folder: "public/images/uploads"  
+  
+  name: git-gateway
+  repo: dorineparm/frenchsaas
   branch: main   # ⚠️ mettre "master" si votre dépôt utilise cette branche
 
   # 👇 REMPLACEZ cette ligne par celle fournie par DecapBridge
@@ -58,3 +68,5 @@ collections:
       - { label: "Tag (ex. Métier, Localisation, SEO / GEO)", name: "tag", widget: "string", default: "Localisation" }
       - { label: "Image d'illustration (optionnelle)", name: "image", widget: "image", required: false }
       - { label: "Contenu", name: "body", widget: "markdown" }
+
+      
