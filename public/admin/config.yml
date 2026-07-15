@@ -14,8 +14,6 @@ backend:
   identity_url: https://auth.decapbridge.com/sites/cd574871-3190-4ee6-b01b-4dd019eca981
   gateway_url: https://gateway.decapbridge.com
 
-publish_mode: editorial_workflow
-
 media_folder: "public/images/uploads"  
   
   name: git-gateway
