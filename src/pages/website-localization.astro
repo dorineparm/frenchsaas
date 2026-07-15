@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  current="services"
+  title="Translate your website into French — localization, not just translation | FrenchSaaS"
+  description="Localize your website into French: landing pages, marketing copy, blog and docs adapted for French readers and French search intent. Native tone, correct typography, real conversion — by a French Language Lead."
+>
+  <!-- Hero -->
+  <section class="hero">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Websites &amp; marketing content</span></div>
+      <h1 class="display-xl stagger">Translate your website into French — so it actually converts.</h1>
+      <p class="lede stagger">Your website is your first impression in a new market. A word-for-word translation reads as foreign; a localized one reads as if it was written for French visitors — because it was.</p>
+      <div class="hero-cta stagger">
+        <a class="btn btn-solid" href="/contact/">Get a quote</a>
+        <a class="btn btn-ghost" href="#what">What I localize</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why -->
+  <section class="section">
+    <div class="wrap lp-wrap">
+      <span class="eyebrow reveal">Why it matters</span>
+      <h2 class="display-l reveal">French visitors decide fast — and they can tell</h2>
+      <p class="reveal lp-p">A French reader spots machine translation in seconds: a missing space before a question mark, a CTA that's been translated literally instead of adapted, a tone that's slightly off. Each detail chips away at trust — exactly when you're trying to earn it. Localizing your website isn't about swapping words; it's about making French visitors feel the site was built for them, from the headline to the fine print.</p>
+    </div>
+  </section>
+
+  <!-- What -->
+  <section class="section" id="what">
+    <div class="wrap lp-wrap">
+      <span class="eyebrow reveal">What I localize</span>
+      <h2 class="display-l reveal" style="margin-bottom:2rem;">From homepage to fine print</h2>
+      <div class="lp-grid">
+        <div class="lp-card reveal">
+          <h3>Landing &amp; marketing pages</h3>
+          <p>Headlines, value propositions and CTAs adapted to land with French readers — not translated literally.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.06s;">
+          <h3>Blog &amp; content</h3>
+          <p>Articles adapted for French search intent and for the AI answer engines your future customers already use.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.12s;">
+          <h3>Product &amp; feature pages</h3>
+          <p>Clear, persuasive French that keeps your positioning intact across the whole site.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.18s;">
+          <h3>Docs &amp; help content</h3>
+          <p>Guides and FAQs written the way French users actually search and read.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.24s;">
+          <h3>French typography &amp; formatting</h3>
+          <p>Guillemets « », spaces before high punctuation, dates, numbers and currency — the details that read as native.</p>
+        </div>
+        <div class="lp-card reveal" style="--d:0.3s;">
+          <h3>Legal &amp; privacy pages</h3>
+          <p>Terms, privacy and cookie notices where the French wording carries real legal weight.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEO/GEO angle -->
+  <section class="section lp-tint">
+    <div class="wrap lp-wrap">
+      <span class="eyebrow reveal">Found, not just translated</span>
+      <h2 class="display-l reveal">Built to be found in French — by Google and by AI</h2>
+      <p class="reveal lp-p">French users search with different terms than a literal translation of your English keywords — and increasingly, they ask AI assistants instead of typing into Google. I adapt your pages for French search intent and for generative engines, so your site isn't just readable in French: it's discoverable, and citable, in the French market.</p>
+      <p class="reveal" style="--d:0.1s;"><a class="lp-link" href="/services/">See all services →</a></p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <span class="deco" data-parallax="-0.08" aria-hidden="true">»</span>
+    <div class="wrap">
+      <h2 class="display-l reveal">Ready to reach French visitors?</h2>
+      <p class="reveal" style="--d:0.08s;">Send me your site or the pages you want localized. You'll get a clear scope and a fair quote — no agency layers.</p>
+      <a class="btn reveal" style="--d:0.16s;" href="/contact/">Get in touch</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lp-wrap { max-width: 50em; }
+  .lp-p { color: var(--grey); max-width: 44em; font-size: 1.05rem; line-height: 1.7; }
+  .lp-tint { background: linear-gradient(160deg, var(--tint), transparent 70%); }
+  .lp-link { font-family: var(--mono); font-size: 0.85rem; color: var(--purple); text-decoration: none; }
+  .lp-link:hover { text-decoration: underline; }
+  .lp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+  @media (max-width: 780px) { .lp-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) { .lp-grid { grid-template-columns: 1fr; } }
+  .lp-card {
+    border: 1px solid var(--line); background: #fff; padding: 1.4rem 1.5rem;
+    transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .lp-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(83,74,183,0.14); border-color: var(--purple); }
+  .lp-card h3 { font-family: var(--display); font-weight: 600; font-size: 1.2rem; color: var(--ink); margin-bottom: 0.5rem; }
+  .lp-card p { font-size: 0.9rem; color: var(--grey); line-height: 1.55; margin: 0; }
+</style>
