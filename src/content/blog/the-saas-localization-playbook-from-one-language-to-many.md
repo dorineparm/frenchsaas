@@ -11,6 +11,8 @@ That's not a coincidence. It's a translation problem wearing a retention costume
 
 This guide walks through why translating your SaaS into multiple languages is worth it, and (the harder part) how to do it without shipping the kind of broken, half-translated product that makes users trust you less than if you'd stayed English-only. It's long, because doing this properly has a lot of moving parts. Grab a coffee.
 
+🎵 [May I offer you some lo-fi for your read?](https://youtu.be/SNzRALm3k00?si=dBb7jBNvu7tOPRXi)
+
 ## Part 1: Why bother?
 
 Let's get the business case out of the way, because "it feels international" is not a reason to spend money.
