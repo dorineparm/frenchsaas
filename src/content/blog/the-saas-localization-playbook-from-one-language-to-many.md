@@ -51,6 +51,7 @@ Use ICU MessageFormat for anything with a number, plural, or gender. This is the
 **Here's the same string done wrong and right:**
 
 > Hard-coded English logic: 3 fichiers, 1 fichiers ← the second is wrong in French
+>
 > ICU, letting the language decide: 3 fichiers, 1 fichier ← correct, because French owns its own rules
 
 * **Plan for text expansion.** Translated text changes length, sometimes dramatically. German and Finnish love to expand; a tidy English button can become a compound word of alarming length. French runs 15–25% longer on average. If your layout was pixel-tuned for English, it will break.
@@ -58,7 +59,7 @@ Use ICU MessageFormat for anything with a number, plural, or gender. This is the
 
 ### The text-expansion tax, illustrated.
 
-English "Save" → French "Enregistrer" → German "Speichern" is manageable. But English "Settings" → German "Einstellungen," or a cheerful little "Buy now" ballooning into some languages' equivalent of "Proceed to the completion of your purchase," is how buttons end up with text spilling out the sides like a sandwich with too much filling (🥪).
+English "`Save`" → French "`Enregistrer`" → German "`Speichern`" is manageable. But English "`Settings`" → German "`Einstellungen`", or a cheerful little "Buy now" ballooning into some languages' equivalent of "`Proceed to the completion of your purchase`", is how buttons end up with text spilling out the sides like a sandwich with too much filling (🥪).
 
 Handle dates, numbers, and currencies properly. `03/04/2026` is `March 4th` in the US and `April 3rd` almost everywhere else. `1,000` is one thousand in English and one (with decimals) in French and German. Don't hand-roll this, use proper locale formatting. This is exactly the kind of tiny, invisible detail that screams "we didn't really think about you" to a local user.
 
