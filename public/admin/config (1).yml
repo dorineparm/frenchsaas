@@ -1,0 +1,60 @@
+# ============================================================
+# Decap CMS — configuration avec DecapBridge
+# Interface d'administration : https://VOTRE-SITE/admin/
+# ============================================================
+# ⚠️ DEUX LIGNES À COMPLÉTER ci-dessous (identity_url et gateway_url) :
+# copiez-les depuis votre tableau de bord DecapBridge après avoir
+# créé votre site sur https://decapbridge.com
+# ============================================================
+
+backend:
+  name: git-gateway
+  repo: dorineparm/frenchsaas
+  branch: main   # ⚠️ mettre "master" si votre dépôt utilise cette branche
+
+  # 👇 REMPLACEZ cette ligne par celle fournie par DecapBridge
+  # (elle contient l'identifiant unique de votre site)
+  identity_url: https://auth.decapbridge.com/sites/cd574871-3190-4ee6-b01b-4dd019eca981
+
+  # 👇 celle-ci est normalement identique pour tout le monde,
+  # mais vérifiez avec le snippet DecapBridge
+  gateway_url: https://gateway.decapbridge.com
+
+# Lien "Se déconnecter" propre dans le CMS (optionnel mais recommandé)
+logo_url: /favicon.svg
+
+media_folder: "public/images/uploads"   # où les images sont stockées dans le repo
+public_folder: "/images/uploads"        # URL publique des images
+
+locale: "fr"
+
+collections:
+  - name: "blog"
+    label: "Articles (EN)"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Description (résumé affiché sur la page Blog)", name: "description", widget: "string" }
+      - { label: "Date de publication", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tag (ex. UX writing, SEO / GEO, Engineering)", name: "tag", widget: "string", default: "Localization" }
+      - { label: "Image d'illustration (optionnelle)", name: "image", widget: "image", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+
+  - name: "blog-fr"
+    label: "Articles (FR)"
+    folder: "src/content/blog-fr"
+    create: true
+    slug: "{{slug}}"
+    editor:
+      preview: false
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Description (résumé affiché sur la page Blog)", name: "description", widget: "string" }
+      - { label: "Date de publication", name: "pubDate", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tag (ex. Métier, Localisation, SEO / GEO)", name: "tag", widget: "string", default: "Localisation" }
+      - { label: "Image d'illustration (optionnelle)", name: "image", widget: "image", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
