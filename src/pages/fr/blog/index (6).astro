@@ -1,0 +1,58 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog-fr')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const fmt = (d) =>
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long' });
+---
+<Base current="blog" lang="fr" title="Blog — FrenchSaaS" description="Notes sur la localisation française pour les produits SaaS : écriture UX, LQA, SEO/GEO et l'art de rendre un logiciel vraiment natif.">
+  <section class="page-head">
+    <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap">
+      <div class="stagger"><span class="eyebrow">Blog</span></div>
+      <h1 class="display-xl stagger">Notes du côté <span class="guillemet">« fr-FR »</span></h1>
+      <p class="lede stagger">Notes de terrain sur la localisation, l'écriture UX et le métier — en français.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      {posts.map((post, i) => (
+        <article class="post-card reveal" style={`--d:${i * 0.07}s;`}>
+          <div class="post-meta">
+            {fmt(post.data.pubDate)}
+            <span class="tag">{post.data.tag}</span>
+          </div>
+          <div class="post-body">
+            {post.data.image && (
+              <a href={`/fr/blog/${post.slug}/`} class="post-thumb" aria-hidden="true" tabindex="-1">
+                <img src={post.data.image} alt="" loading="lazy" />
+              </a>
+            )}
+            <div>
+              <h3><a href={`/fr/blog/${post.slug}/`}>{post.data.title}</a></h3>
+              <p>{post.data.description}</p>
+              <a class="read-more" href={`/fr/blog/${post.slug}/`}>Lire l'article <span class="rm-arrow">→</span></a>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .post-body { display: flex; gap: 1.6rem; align-items: flex-start; }
+  .post-thumb { flex: 0 0 120px; order: 2; display: block; overflow: hidden; border: 1px solid var(--line); }
+  .post-thumb img { display: block; width: 120px; height: 120px; object-fit: cover; transition: transform 0.4s ease; }
+  .post-card:hover .post-thumb img { transform: scale(1.05); }
+  @media (max-width: 640px) {
+    .post-body { flex-direction: column; }
+    .post-thumb { order: 0; }
+    .post-thumb img { width: 100%; height: 160px; }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+import Base from '../../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog-fr');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const fmt = (d) =>
+  d.toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<Base lang="fr" title={`${post.data.title} — FrenchSaaS`} description={post.data.description} current="blog">
+  <section class="article-head">
+    <div class="wrap">
+      <a class="back-link" href="/fr/blog/">← Tous les articles</a>
+      <h1 class="display-l">{post.data.title}</h1>
+      <p class="article-meta" style="margin-top:1rem;">
+        {fmt(post.data.pubDate)} · <span class="tag">{post.data.tag}</span>
+      </p>
+    </div>
+  </section>
+  <div class="wrap">
+    <div class="prose">
+      <Content />
+    </div>
+  </div>
+</Base>
