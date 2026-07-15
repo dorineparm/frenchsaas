@@ -6,7 +6,7 @@ description: "Why and how to localize your SaaS into multiple languages: the
 pubDate: 2026-07-15
 tag: Localization, SaaS
 ---
-Your SaaS works. People are paying for it. And then you look at your analytics and notice a quarter of your signups come from countries where English isn't the first language — and most of them churn before day seven.
+Your SaaS works. People are paying for it. And then you look at your analytics and notice a quarter of your signups come from countries where English isn't the first language, and most of them churn before day seven.
 That's not a coincidence. It's a translation problem wearing a retention costume.
 
 This guide walks through why translating your SaaS into multiple languages is worth it, and (the harder part) how to do it without shipping the kind of broken, half-translated product that makes users trust you less than if you'd stayed English-only. It's long, because doing this properly has a lot of moving parts. Grab a coffee.
@@ -18,65 +18,63 @@ People buy in their own language. This is the least surprising finding in the hi
 
 Your competitors are probably still English-only. In a lot of SaaS categories, localization is the thing everyone agrees is important and nobody has gotten around to. Being the product that actually speaks a market's language is a genuine edge, sometimes the deciding one.
 
-Support costs drop. Users who understand your product raise fewer tickets, file fewer "how do I even" complaints, and rage-quit less. Localization quietly pays for itself on the support side.
+**Support costs drop.** Users who understand your product raise fewer tickets, file fewer "how do I even" complaints, and rage-quit less. Localization quietly pays for itself on the support side.
 
-Search visibility multiplies. Every language you localize is a new set of keywords, a new market's Google, and increasingly a new audience of people asking AI assistants for recommendations in their own language. Content that only exists in English is invisible to all of them.
+**Search visibility multiplies.** Every language you localize is a new set of keywords, a new market's Google, and increasingly a new audience of people asking AI assistants for recommendations in their own language. Content that only exists in English is invisible to all of them.
 
-A reality check. None of this means "translate into 30 languages tomorrow." The most common localization mistake isn't translating badly — it's translating too much, too fast, into markets you haven't validated. More on that in a second.
+**A reality check.** None of this means "translate into 30 languages tomorrow." The most common localization mistake isn't translating badly: it's translating *too much*, *too fast*, into markets you haven't validated. More on that in a second.
 
-Part 2: Which languages, and in what order?
+## Part 2: Which languages, and in what order?
 
 Here's where teams either overthink it or don't think at all.
 
 Don't start with "the biggest languages." Start with your data. Where are your signups, your trials, your churned users, your support tickets coming from? Which markets are converting despite the language barrier — because those are the ones that'll explode once you remove it?
-A sane order of operations:
 
-Look at your traffic and revenue by country. Follow the money and the momentum.
+### A sane order of operations:
 
-Pick one or two languages to start. Not ten. One or two.
+**Look at your traffic and revenue by country.** Follow the money and the momentum.
 
-Localize fully for those, learn, then expand. A product beautifully localized into two languages beats one clumsily machine-translated into twelve.
+**Pick one or two languages to start.** Not ten. One or two.
 
-The "we'll just add every language" trap. A team once proudly told me they supported 15 languages. I clicked into three of them. All 15 shared the same broken plural strings, the same untranslated error messages, and my personal favorite: a German UI where every button had burst its container like an overstuffed suitcase. Fifteen languages, zero of them actually finished. Depth beats breadth.
+**Localize fully for those, learn, then expand.** A product beautifully localized into two languages beats one clumsily machine-translated into twelve.
 
-Part 3: The technical foundation (do this before you translate a word)
+**The "we'll just add every language" trap**. A team once proudly told me they supported 15 languages. I clicked into three of them. All 15 shared the same broken plural strings, the same untranslated error messages, and my personal favorite: a German UI where every button had burst its container like an overstuffed suitcase. Fifteen languages, zero of them actually finished. Depth beats breadth.
+
+## Part 3: The technical foundation (do this before you translate a word)
 
 This is the part teams skip, and it's the part that determines whether the whole project succeeds. Most localization disasters are baked in before a single word is translated. They live in the code.
 
-Externalize your strings. If text is hard-coded in your components, localization is impossible — full stop. Every user-facing string needs to live in resource files (JSON, PO, XLIFF, whatever your stack uses), separated from your code. This is called internationalization (i18n), and it's the groundwork translation sits on.
+Externalize your strings. If text is hard-coded in your components, localization is impossible. Full stop. Every user-facing string needs to live in resource files (JSON, PO, XLIFF, whatever your stack uses), separated from your code. This is called internationalization (i18n), and it's the groundwork translation sits on.
 
 Use ICU MessageFormat for anything with a number, plural, or gender. This is the big one. Different languages have wildly different plural rules. English has two forms (one / other). French treats zero as singular. Polish has four plural categories. Arabic has six. If your code hard-codes "add an s," you will be wrong in most of the world's languages.
 
 **Here's the same string done wrong and right:**
 
-Hard-coded English logic: 3 fichiers, 1 fichiers ← the second is wrong in French
-ICU, letting the language decide: 3 fichiers, 1 fichier ← correct, because French owns its own rules
+> Hard-coded English logic: 3 fichiers, 1 fichiers ← the second is wrong in French
+> ICU, letting the language decide: 3 fichiers, 1 fichier ← correct, because French owns its own rules
 
 * **Plan for text expansion.** Translated text changes length, sometimes dramatically. German and Finnish love to expand; a tidy English button can become a compound word of alarming length. French runs 15–25% longer on average. If your layout was pixel-tuned for English, it will break.
-* Design flexible components and test them with real translated strings, not "Lorem ipsum."
+* Design flexible components and test them with real translated strings, not "`Lorem ipsum.`"
 
-The text-expansion tax, illustrated.
+### The text-expansion tax, illustrated.
 
 English "Save" → French "Enregistrer" → German "Speichern" is manageable. But English "Settings" → German "Einstellungen," or a cheerful little "Buy now" ballooning into some languages' equivalent of "Proceed to the completion of your purchase," is how buttons end up with text spilling out the sides like a sandwich with too much filling (🥪).
 
-Handle dates, numbers, and currencies properly. 03/04/2026 is March 4th in the US and April 3rd almost everywhere else. 1,000 is one thousand in English and one (with decimals) in French and German. Don't hand-roll this, use proper locale formatting. This is exactly the kind of tiny, invisible detail that screams "we didn't really think about you" to a local user.
+Handle dates, numbers, and currencies properly. `03/04/2026` is `March 4th` in the US and `April 3rd` almost everywhere else. `1,000` is one thousand in English and one (with decimals) in French and German. Don't hand-roll this, use proper locale formatting. This is exactly the kind of tiny, invisible detail that screams "we didn't really think about you" to a local user.
 
 Support right-to-left if it's on your roadmap. Arabic and Hebrew flip your entire layout. If those markets are even a maybe, it's far cheaper to keep your CSS RTL-aware from the start than to retrofit it later.
 
 ## Part 4: Translation vs. localization (they are not the same word twice)
 
 Here's the distinction that separates products that feel foreign from products that feel native.
-Translation converts your words. Localization adapts your product so it feels like it was built for that market. Translation is a subset of localization — a necessary part, but not the whole job.
+Translation converts your words. Localization adapts your product so it feels like it was built for that market. Translation is a subset of localization, a necessary part, but not the whole job.
 
 Localization also means:
 
-**Tone and formality.** Many languages force a choice English doesn't. French has tu vs vous; German has du vs Sie. Pick one, stay consistent, and know that the choice defines your entire brand voice in that language.
-
-**Cultural adaptation.** Idioms, humor, examples, imagery, color associations, even your placeholder names ("John Doe" means nothing in Tokyo).
-
-**Legal and formatting conventions.** Privacy copy, consent flows, address formats, phone number formats — all local.
-
-**CTAs that persuade, not translate.** "Get started" doesn't always have a natural equivalent. A good localizer rewrites it to land, rather than translating it into something grammatically correct and emotionally dead.
+* **Tone and formality.** Many languages force a choice English doesn't. French has tu vs vous; German has du vs Sie. Pick one, stay consistent, and know that the choice defines your entire brand voice in that language.
+* **Cultural adaptation.** Idioms, humor, examples, imagery, color associations, even your placeholder names ("John Doe" means nothing in Tokyo).
+* **Legal and formatting conventions.** Privacy copy, consent flows, address formats, phone number formats — all local.
+* **CTAs that persuade, not translate.** "Get started" doesn't always have a natural equivalent. A good localizer rewrites it to land, rather than translating it into something grammatically correct and emotionally dead.
 
 Why this matters more than teams expect. A word-for-word translation is often grammatically perfect and completely lifeless, the linguistic equivalent of a hotel breakfast. Technically food. Nobody's excited (unless you're in Scotland and get served a *full Scottish*. Please, please try those!).
 
