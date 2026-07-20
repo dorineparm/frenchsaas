@@ -1,10 +1,6 @@
 # ============================================================
 # Decap CMS — configuration avec DecapBridge
-# Interface d'administration : https://VOTRE-SITE/admin/
-# ============================================================
-# ⚠️ DEUX LIGNES À COMPLÉTER ci-dessous (identity_url et gateway_url) :
-# copiez-les depuis votre tableau de bord DecapBridge après avoir
-# créé votre site sur https://decapbridge.com
+# Interface d'administration : https://frenchsaas.com/admin/
 # ============================================================
 
 backend:
@@ -12,20 +8,6 @@ backend:
   repo: dorineparm/frenchsaas
   branch: main
   identity_url: https://auth.decapbridge.com/sites/cd574871-3190-4ee6-b01b-4dd019eca981
-  gateway_url: https://gateway.decapbridge.com
-
-media_folder: "public/images/uploads"  
-  
-  name: git-gateway
-  repo: dorineparm/frenchsaas
-  branch: main   # ⚠️ mettre "master" si votre dépôt utilise cette branche
-
-  # 👇 REMPLACEZ cette ligne par celle fournie par DecapBridge
-  # (elle contient l'identifiant unique de votre site)
-  identity_url: https://auth.decapbridge.com/sites/cd574871-3190-4ee6-b01b-4dd019eca981
-
-  # 👇 celle-ci est normalement identique pour tout le monde,
-  # mais vérifiez avec le snippet DecapBridge
   gateway_url: https://gateway.decapbridge.com
 
 # Lien "Se déconnecter" propre dans le CMS (optionnel mais recommandé)
@@ -66,5 +48,3 @@ collections:
       - { label: "Tag (ex. Métier, Localisation, SEO / GEO)", name: "tag", widget: "string", default: "Localisation" }
       - { label: "Image d'illustration (optionnelle)", name: "image", widget: "image", required: false }
       - { label: "Contenu", name: "body", widget: "markdown" }
-
-      
