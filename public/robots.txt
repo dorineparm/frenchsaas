@@ -1,4 +1,9 @@
 User-agent: *
+
 Allow: /
+
+Disallow: /admin/
+Disallow: /admin2/
+Disallow: /thanks/
 
 Sitemap: https://frenchsaas.com/sitemap.xml
