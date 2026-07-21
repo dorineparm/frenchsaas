@@ -13,7 +13,7 @@ import Base from '../layouts/Base.astro';
 
       <div class="wl-hero-text">
         <div class="stagger"><span class="eyebrow">Websites &amp; marketing content</span></div>
-        <h1 class="display-xl stagger">Translate your website into French — so it actually converts.</h1>
+        <h1 class="display-xl stagger">Translate your website into French, so it actually converts.</h1>
         <p class="lede stagger">Your website is your first impression in a new market. A word-for-word translation reads as foreign; a localized one reads as if it was written for French visitors… because it was!</p>
         <div class="hero-cta stagger">
           <a class="btn btn-solid" href="/contact/">Get a quote</a>
@@ -35,10 +35,12 @@ import Base from '../layouts/Base.astro';
             <p class="wl-card-text">Your product is ready for a new market.</p>
           </div>
 
-          <svg class="wl-arrow" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M12 4 L12 60 Q12 72 24 72 L44 72" fill="none" stroke="var(--purple)" stroke-width="2"/>
-            <path d="M38 66 L48 72 L38 78 Z" fill="var(--purple)"/>
-          </svg>
+          <div class="wl-arrow-wrap" aria-hidden="true">
+            <svg class="wl-arrow" viewBox="0 0 70 46" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2 L8 28 Q8 38 18 38 L54 38" fill="none" stroke="var(--purple)" stroke-width="2"/>
+              <path d="M48 32 L60 38 L48 44 Z" fill="var(--purple)"/>
+            </svg>
+          </div>
 
           <div class="wl-card wl-card-localized">
             <div class="wl-card-head">
@@ -186,10 +188,10 @@ import Base from '../layouts/Base.astro';
   .wl-sectors { font-family: var(--mono); font-size: 0.8rem; color: var(--grey); }
 
   /* demo cards */
-  .wl-demo { position: relative; }
+  .wl-demo { display: flex; flex-direction: column; }
   .wl-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem 1.4rem; box-shadow: 0 12px 34px rgba(23,20,43,0.07); }
   .wl-card-source { max-width: 88%; }
-  .wl-card-localized { max-width: 92%; margin-left: auto; margin-top: 0.4rem; border-color: #D9D5F5; }
+  .wl-card-localized { max-width: 92%; margin-left: auto; border-color: #D9D5F5; }
   .wl-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.7rem; }
   .wl-card-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); }
   .wl-card-label-fr { color: var(--purple); }
@@ -201,8 +203,8 @@ import Base from '../layouts/Base.astro';
   .wl-dot { width: 8px; height: 8px; border-radius: 50%; background: #1E874B; display: inline-block; }
   .wl-chip { font-family: var(--mono); font-size: 0.68rem; color: var(--purple); background: var(--tint); border-radius: 5px; padding: 0.22rem 0.55rem; }
 
-  .wl-arrow { position: absolute; left: 6%; top: 4.2rem; width: 44px; height: 66px; z-index: 2; }
-  @media (max-width: 900px) { .wl-arrow { left: 8%; } }
+  .wl-arrow-wrap { padding-left: 7%; height: 2.6rem; display: flex; align-items: center; }
+  .wl-arrow { width: 66px; height: 44px; display: block; }
 
   /* trust badges */
   .wl-trust { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem; }
