@@ -13,7 +13,7 @@ So let's clear it up honestly, unglamorous parts included. Because the role is g
 
 ## The one-sentence version
 
-A Language Lead owns a language inside your product. Not a project. Not a batch of strings. The language — its quality, its consistency, its voice, across everything, as the product grows.
+A Language Lead owns a language inside your product. Not a project. Not a batch of strings. The language (its quality, its consistency, its voice, across everything) as the product grows.
 
 A translator is handed strings and translates them. A Language Lead is responsible for what French is in your product: how it sounds, which words you use, whether it stays coherent when five different people touch it over two years. One does a task. The other owns an outcome.
 
@@ -47,9 +47,9 @@ Keeps it coherent over time. Products don't stop. New features, new strings, new
 
 Since you're still reading, you've earned the real talk.
 
-A lot of this job is not thrilling. It's updating a glossary. It's catching the same misused term for the fortieth time and gently fixing it again. It's writing a style-guide entry about whether numbers get a non-breaking space before the euro sign (they do) that maybe three people will ever read. Much of the best work is invisible. You only notice a Language Lead's contribution when it's missing, which is a strange kind of success to build a career on.
+A lot of this job is not thrilling. It's **updating a glossary**. It's **catching the same misused term for the fortieth time** and gently fixing it again. It's **writing a style-guide entry** about whether numbers get a non-breaking space before the euro sign (they do) that maybe three people will ever read. Much of the best work is invisible. You only notice a Language Lead's contribution when it's missing, which is a strange kind of success to build a career on.
 
-It's also part diplomacy. You're often telling people (kindly) that their favorite headline doesn't work in French, or that "we'll just machine-translate the help center" is going to cost more later than it saves now. Being right isn't enough; you have to be right and easy to work with.
+It's also part **diplomacy**. You're often telling people (kindly) that their favorite headline doesn't work in French, or that "we'll just machine-translate the help center" is going to cost more later than it saves now. Being right isn't enough; you have to be right and easy to work with.
 
 And it's rarer than it should be. Plenty of companies don't know the role exists, or fold it into "we have a translator." Which is fine, right up until their French sounds like it was assembled from three different products by people who never spoke to each other. Because it was.
 
