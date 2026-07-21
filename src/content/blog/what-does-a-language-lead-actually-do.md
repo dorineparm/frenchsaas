@@ -1,5 +1,5 @@
 ---
-title: What Does a Language Lead Actually Do?
+title: What does a Language Lead actually do?
 description: What does a Language Lead actually do? Not translation. Ownership
   of a product's voice, glossary and consistency across every release
 pubDate: 2026-07-21
