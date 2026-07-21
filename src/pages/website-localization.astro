@@ -36,9 +36,9 @@ import Base from '../layouts/Base.astro';
           </div>
 
           <div class="wl-arrow-wrap" aria-hidden="true">
-            <svg class="wl-arrow" viewBox="0 0 70 46" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8 2 L8 28 Q8 38 18 38 L54 38" fill="none" stroke="var(--purple)" stroke-width="2"/>
-              <path d="M48 32 L60 38 L48 44 Z" fill="var(--purple)"/>
+            <svg class="wl-arrow" viewBox="0 0 70 44" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 2 L8 26 Q8 34 18 34 L52 34" fill="none" stroke="var(--purple)" stroke-width="2"/>
+              <path d="M44 28 L60 34 L44 40 Z" fill="var(--purple)"/>
             </svg>
           </div>
 
@@ -203,8 +203,8 @@ import Base from '../layouts/Base.astro';
   .wl-dot { width: 8px; height: 8px; border-radius: 50%; background: #1E874B; display: inline-block; }
   .wl-chip { font-family: var(--mono); font-size: 0.68rem; color: var(--purple); background: var(--tint); border-radius: 5px; padding: 0.22rem 0.55rem; }
 
-  .wl-arrow-wrap { padding-left: 7%; height: 2.6rem; display: flex; align-items: center; }
-  .wl-arrow { width: 66px; height: 44px; display: block; }
+  .wl-arrow-wrap { padding-left: 7%; height: 2.4rem; margin-bottom: -0.3rem; position: relative; z-index: 2; display: flex; align-items: flex-start; }
+  .wl-arrow { width: 66px; height: 42px; display: block; }
 
   /* trust badges */
   .wl-trust { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem; }
