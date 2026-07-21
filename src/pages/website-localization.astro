@@ -7,23 +7,111 @@ import Base from '../layouts/Base.astro';
   description="Localize your website into French: landing pages, marketing copy, blog and docs adapted for French readers and French search intent. Native tone, correct typography, real conversion, by a French Language Lead."
 >
   <!-- Hero -->
-  <section class="hero">
+  <section class="hero wl-hero">
     <span class="deco deco-guillemets" data-parallax="0.18" aria-hidden="true">«&nbsp;»</span>
+    <div class="wrap wl-hero-grid">
+
+      <div class="wl-hero-text">
+        <div class="stagger"><span class="eyebrow">Websites &amp; marketing content</span></div>
+        <h1 class="display-xl stagger">Translate your website into French — so it actually converts.</h1>
+        <p class="lede stagger">Your website is your first impression in a new market. A word-for-word translation reads as foreign; a localized one reads as if it was written for French visitors… because it was!</p>
+        <div class="hero-cta stagger">
+          <a class="btn btn-solid" href="/contact/">Get a quote</a>
+          <a class="btn btn-ghost" href="#what">What I localize</a>
+        </div>
+        <div class="wl-meta stagger">
+          <span class="wl-flag">FR-FR</span>
+          <span class="wl-sectors">SaaS · Tech · Gaming</span>
+        </div>
+      </div>
+
+      <div class="wl-hero-visual stagger">
+        <div class="wl-demo">
+          <div class="wl-card wl-card-source">
+            <div class="wl-card-head">
+              <span class="wl-card-label">Source — EN</span>
+              <span class="wl-badge">EN</span>
+            </div>
+            <p class="wl-card-text">Your product is ready for a new market.</p>
+          </div>
+
+          <svg class="wl-arrow" viewBox="0 0 60 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 4 L12 60 Q12 72 24 72 L44 72" fill="none" stroke="var(--purple)" stroke-width="2"/>
+            <path d="M38 66 L48 72 L38 78 Z" fill="var(--purple)"/>
+          </svg>
+
+          <div class="wl-card wl-card-localized">
+            <div class="wl-card-head">
+              <span class="wl-card-label wl-card-label-fr">Localized — FR</span>
+              <span class="wl-badge">FR</span>
+            </div>
+            <p class="wl-card-text wl-card-text-fr">Votre produit est prêt pour un nouveau marché.</p>
+            <div class="wl-card-foot">
+              <span class="wl-delivered"><span class="wl-dot" aria-hidden="true"></span> Delivered</span>
+              <span class="wl-chip">FR-FR</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="wl-trust">
+          <span class="wl-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+            Human-reviewed
+          </span>
+          <span class="wl-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 7h6M8 11h6"/></svg>
+            Terminology checked
+          </span>
+          <span class="wl-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            Culture-first
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Why it matters band -->
+  <section class="section wl-why">
     <div class="wrap">
-      <div class="stagger"><span class="eyebrow">Websites &amp; marketing content</span></div>
-      <h1 class="display-xl stagger">Translate your website into French — so it actually converts.</h1>
-      <p class="lede stagger">Your website is your first impression in a new market. A word-for-word translation reads as foreign; a localized one reads as if it was written for French visitors… because it was!</p>
-      <div class="hero-cta stagger">
-        <a class="btn btn-solid" href="/contact/">Get a quote</a>
-        <a class="btn btn-ghost" href="#what">What I localize</a>
+      <div class="wl-why-head"><span class="eyebrow reveal">Why it matters</span></div>
+      <div class="wl-why-grid">
+        <div class="wl-why-item reveal">
+          <span class="wl-why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.2"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M15 15c3 0 6 1.5 6 5"/></svg>
+          </span>
+          <div>
+            <h3>Build instant trust</h3>
+            <p>Natural, fluent French that feels native.</p>
+          </div>
+        </div>
+        <div class="wl-why-item reveal" style="--d:0.08s;">
+          <span class="wl-why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V5M4 19h16"/><path d="M7 15l3-4 3 2 4-6"/><path d="M17 7h2v2"/></svg>
+          </span>
+          <div>
+            <h3>Improve conversions</h3>
+            <p>Speak your visitors' language — and sell more.</p>
+          </div>
+        </div>
+        <div class="wl-why-item reveal" style="--d:0.16s;">
+          <span class="wl-why-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>
+          </span>
+          <div>
+            <h3>Protect your brand</h3>
+            <p>Consistent tone, terms, and positioning.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Why -->
+  <!-- The difference -->
   <section class="section">
     <div class="wrap lp-wrap">
-      <span class="eyebrow reveal">Why it matters</span>
+      <span class="eyebrow reveal">The difference</span>
       <h2 class="display-l reveal">French visitors decide fast — and they can tell</h2>
       <p class="reveal lp-p">A French reader spots machine translation in seconds: a missing space before a question mark, a CTA that's been translated literally instead of adapted, a tone that's slightly off. Each detail chips away at trust, exactly when you're trying to earn it. Localizing your website isn't about swapping words; it's about making French visitors feel the site was built for them, from the headline to the fine print.</p>
     </div>
@@ -85,6 +173,58 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <style>
+  /* ---- Visual hero ---- */
+  .wl-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+  @media (max-width: 900px) { .wl-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .wl-meta { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .wl-flag {
+    font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.04em;
+    color: var(--purple); background: var(--tint); border: 1px solid var(--line);
+    padding: 0.35rem 0.7rem; border-radius: 4px;
+  }
+  .wl-sectors { font-family: var(--mono); font-size: 0.8rem; color: var(--grey); }
+
+  /* demo cards */
+  .wl-demo { position: relative; }
+  .wl-card { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 1.2rem 1.4rem; box-shadow: 0 12px 34px rgba(23,20,43,0.07); }
+  .wl-card-source { max-width: 88%; }
+  .wl-card-localized { max-width: 92%; margin-left: auto; margin-top: 0.4rem; border-color: #D9D5F5; }
+  .wl-card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.7rem; }
+  .wl-card-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); }
+  .wl-card-label-fr { color: var(--purple); }
+  .wl-badge { font-family: var(--mono); font-size: 0.68rem; color: var(--purple); background: var(--tint); border-radius: 5px; padding: 0.2rem 0.5rem; }
+  .wl-card-text { font-size: 1rem; color: var(--ink); margin: 0; line-height: 1.5; }
+  .wl-card-text-fr { font-family: var(--display); font-size: 1.15rem; }
+  .wl-card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; padding-top: 0.9rem; border-top: 1px solid var(--line); flex-wrap: wrap; gap: 0.6rem; }
+  .wl-delivered { font-size: 0.82rem; color: #1E874B; display: inline-flex; align-items: center; gap: 0.45rem; }
+  .wl-dot { width: 8px; height: 8px; border-radius: 50%; background: #1E874B; display: inline-block; }
+  .wl-chip { font-family: var(--mono); font-size: 0.68rem; color: var(--purple); background: var(--tint); border-radius: 5px; padding: 0.22rem 0.55rem; }
+
+  .wl-arrow { position: absolute; left: 6%; top: 4.2rem; width: 44px; height: 66px; z-index: 2; }
+  @media (max-width: 900px) { .wl-arrow { left: 8%; } }
+
+  /* trust badges */
+  .wl-trust { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem; }
+  .wl-trust-item {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.82rem; color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px; padding: 0.5rem 0.85rem; background: #fff;
+  }
+  .wl-trust-item svg { width: 16px; height: 16px; color: var(--purple); }
+
+  /* why it matters band */
+  .wl-why { background: linear-gradient(160deg, var(--tint), transparent 75%); }
+  .wl-why-head { text-align: center; margin-bottom: 2rem; }
+  .wl-why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem 2.5rem; }
+  @media (max-width: 780px) { .wl-why-grid { grid-template-columns: 1fr; gap: 1.4rem; } }
+  .wl-why-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .wl-why-icon { flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%; background: var(--purple); color: #fff; display: inline-flex; align-items: center; justify-content: center; }
+  .wl-why-icon svg { width: 22px; height: 22px; }
+  .wl-why-item h3 { font-family: var(--display); font-weight: 600; font-size: 1.15rem; color: var(--ink); margin-bottom: 0.25rem; }
+  .wl-why-item p { font-size: 0.9rem; color: var(--grey); margin: 0; line-height: 1.5; }
+
+  /* ---- shared landing styles ---- */
   .lp-wrap { max-width: 50em; }
   .lp-p { color: var(--grey); max-width: 44em; font-size: 1.05rem; line-height: 1.7; }
   .lp-tint { background: linear-gradient(160deg, var(--tint), transparent 70%); }
